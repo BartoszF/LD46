@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7783482797135463731}
   - component: {fileID: 954180198391125762}
   - component: {fileID: 8085289856595788192}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: KitchenMachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6904368909505532661}
   m_LocalRotation: {x: -0, y: -0, z: -0.707105, w: 0.7071086}
-  m_LocalPosition: {x: 0.5, y: 1, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6904368910076387238}
@@ -111,7 +111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6904368910076387238}
   - component: {fileID: 6904368910076387239}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kitchenMachineGFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,16 +248,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3047110962329217674, guid: ff2d4adea68bfc54fa5fb65bc6296581,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3047110962329217674, guid: ff2d4adea68bfc54fa5fb65bc6296581,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff2d4adea68bfc54fa5fb65bc6296581, type: 3}
