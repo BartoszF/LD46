@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MergerInput : InputChecker, ITransportationItem
+public class TransportationInput : InputChecker, ITransportationItem
 {
     void Update()
     {
