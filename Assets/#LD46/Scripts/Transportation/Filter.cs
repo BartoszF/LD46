@@ -28,6 +28,9 @@ public class Filter : MonoBehaviour, ITransportationItem
 
         _InputChecker = transform.Find("Input").GetComponent<InputChecker>();
         _InputChecker.OnChange += this.OnInput;
+
+        //TODO: we want to change it at runtime through gui
+        transform.Find("filterIcon").GetComponent<SpriteRenderer>().sprite = beltItemToFilter.sprite;
     }
 
     // Update is called once per frame
