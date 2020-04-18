@@ -10,6 +10,7 @@ public class Machine : MonoBehaviour
 
     private Transform _output;
     private OutputChecker _outputChecker;
+    private ConveyorBelt _outputBelt;
     private float _timer = 0f;
 
     // Start is called before the first frame update
@@ -17,16 +18,25 @@ public class Machine : MonoBehaviour
     {
         _output = transform.Find("Output");
         _outputChecker = _output.GetComponent<OutputChecker>();
+        _outputChecker.OnChange += this.OnBeltChange;
     }
 
     // Update is called once per frame
-    protected void Update()
+    protected void FixedUpdate()
     {
-        if(_timer >= secondsToProduce && !_outputChecker.hasItem) {
-            _timer -= secondsToProduce;
+        if(_timer >= secondsToProduce) {
+            Debug.Log(_outputBelt.HasItem());
+        }
+        if (_timer >= secondsToProduce && !_outputBelt.HasItem())
+        {
+            _timer = 0;
             Instantiate(itemProduced, _output.position, Quaternion.identity);
         }
 
-        _timer += Time.deltaTime;
+        _timer += Time.fixedDeltaTime;
+    }
+
+    private void OnBeltChange(ConveyorBelt belt) {
+        this._outputBelt = belt;
     }
 }

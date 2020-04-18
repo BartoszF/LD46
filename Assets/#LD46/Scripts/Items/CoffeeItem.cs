@@ -5,4 +5,11 @@ using UnityEngine;
 public class CoffeeItem : BeltItem
 {
     
+    void Start() {
+        base.Start();
+    }
+
+    void FixedUpdate() {
+        base.FixedUpdate();
+    }
 }
