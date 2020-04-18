@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SelectBuilding : MonoBehaviour
 {
-    public BuildingModeEnum buildingModeToSet;
+    public BuildableEntity buildableEntity;
 
     public Button button;
 
@@ -14,8 +14,7 @@ public class SelectBuilding : MonoBehaviour
     }
 
     void OnMouseDown () {
-        Debug.Log("OnClickButch");
          BuildingMode buildingMode = GameObject.Find("GameState").GetComponent<BuildingMode>();
-         buildingMode.setBuildingMode(buildingModeToSet);
+         buildingMode.setBuildingMode(buildableEntity.buildingMode);
     }
 }

@@ -45,18 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0df6d03774ae394795530b16fb4ab0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modeToPrefabArr:
-  - buildingMode: 0
-    prefab: {fileID: 0}
-  - buildingMode: 1
-    prefab: {fileID: 3962668703244812252, guid: 6f149d10ca405144fbb47373e7bb2016,
-      type: 3}
-  - buildingMode: 2
-    prefab: {fileID: 4670069318824985457, guid: 34e169b1db284304facc64b516484649,
-      type: 3}
-  - buildingMode: 3
-    prefab: {fileID: 6904368909505532661, guid: 0cc7eabbf30e6834f83ebb30d2e8682e,
-      type: 3}
+  buildableEntities:
+  - {fileID: 11400000, guid: 31cea057b2f3bf64fbe95a19e11e8cf9, type: 2}
+  - {fileID: 11400000, guid: 6a58c612eefb6004fb5e408fd102bb13, type: 2}
+  - {fileID: 11400000, guid: e5b6ebe5322202e498109b5751614a96, type: 2}
 --- !u!61 &4345594448695842271
 BoxCollider2D:
   m_ObjectHideFlags: 0

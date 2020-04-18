@@ -8,23 +8,11 @@ public class Tile : MonoBehaviour
     private SelectedAction actionMode;
 
     private BuildingMode buildingMode;
-    private Dictionary<BuildingModeEnum, GameObject> modeToPrefab = new Dictionary<BuildingModeEnum, GameObject>();
-
-    [Serializable]
-    public struct BuildingToPrefab {
-        public BuildingModeEnum buildingMode;
-        public GameObject prefab;
-    }
-
-    public BuildingToPrefab[] modeToPrefabArr;
+    public List<BuildableEntity> buildableEntities;
 
     void Start() {
         buildingMode = GameObject.Find("GameState").GetComponent<BuildingMode>();
         actionMode = GameObject.Find("GameState").GetComponent<SelectedAction>();
-        foreach (var item in modeToPrefabArr)
-        {
-            modeToPrefab.Add(item.buildingMode, item.prefab);
-        }
     }
 
 
@@ -33,21 +21,23 @@ public class Tile : MonoBehaviour
     }
 
     void OnMouseDown () {
-        GameObject prefabToBuild = null;
-        modeToPrefab.TryGetValue(buildingMode.buildingMode, out prefabToBuild);
-        if (prefabToBuild != null && actionMode.selectedAction == SelectedActionEnum.Building) {
-            Vector3 localPos = transform.localPosition;
-            localPos.z = prefabToBuild.transform.position.z;    
+        BuildableEntity buildable = buildableEntities.Find(it => it.buildingMode == buildingMode.buildingMode);
+        if (buildable != null && actionMode.selectedAction == SelectedActionEnum.Building) {
 
-            SpriteRenderer prefabRenderer = prefabToBuild.GetComponentInChildren<SpriteRenderer>();
+            //TODO: Check if player has enough money
+
+            Vector3 localPos = transform.localPosition;
+            localPos.z = buildable.prefab.transform.position.z;    
+
+            SpriteRenderer prefabRenderer = buildable.prefab.GetComponentInChildren<SpriteRenderer>();
 
             Vector2 collisionCheckSize = (Vector2) prefabRenderer.size;
-            collisionCheckSize.x -= 0.2f;
-            collisionCheckSize.y -= 0.2f;
+            collisionCheckSize.x -= 0.1f;
+            collisionCheckSize.y -= 0.1f;
             Collider2D[] collider = Physics2D.OverlapBoxAll((Vector2) transform.localPosition,collisionCheckSize, 0.0f);
 
             if (Array.Find(collider, containsBuilding) == null) {
-                    GameObject instaniatedGameObject = Instantiate(prefabToBuild, localPos, Quaternion.identity);
+                    GameObject instaniatedGameObject = Instantiate(buildable.prefab, localPos, Quaternion.identity);
             } else {
                 Debug.Log("Something collides, show some error or something");
             }
