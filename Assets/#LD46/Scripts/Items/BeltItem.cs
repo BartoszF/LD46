@@ -15,7 +15,7 @@ public class BeltItem : MonoBehaviour
     // Update is called once per frame
     protected void FixedUpdate()
     {
-        
+        Debug.DrawLine(transform.position, (Vector2)transform.position + _rb.velocity, Color.cyan);
     }
 
     public Rigidbody2D GetRigidbody() {

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 622614462534185108}
   - component: {fileID: 622614462534185109}
   - component: {fileID: 622614462534185111}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Input Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,8 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 622614462740995593}
   - component: {fileID: 622614462740995592}
-  - component: {fileID: 3436265559637913853}
-  - component: {fileID: 5027108058874800805}
+  - component: {fileID: -3615512045065897699}
   m_Layer: 8
   m_Name: Merger
   m_TagString: Untagged
@@ -144,7 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   timeoutSeconds: 2
---- !u!61 &3436265559637913853
+--- !u!61 &-3615512045065897699
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,7 +153,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -169,32 +168,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!61 &5027108058874800805
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 622614462740995595}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.002118051, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.0123653, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &622614463079804692
 GameObject:
@@ -343,6 +316,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Input Left
+      objectReference: {fileID: 0}
+    - target: {fileID: 807203126568381808, guid: db885ac0fdbeb164db664f0ff5cec6b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db885ac0fdbeb164db664f0ff5cec6b7, type: 3}

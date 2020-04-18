@@ -43,20 +43,20 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
         {
             Vector3 direction = Vector3.zero;
 
-            if (Vector3.Distance(_currentItem.GetTransform().position, transform.position) < 0.05f)
+            if (Vector3.Distance(_currentItem.GetTransform().position, transform.position) < 0.02f)
             {
                 _arrivedCenter = true;
             }
 
             if (!_arrivedCenter)
             {
-                direction = (transform.position - (Vector3)_currentItem.GetTransform().position).normalized;
+                direction = (transform.position - (Vector3)_currentItem.GetRigidbody().position).normalized;
             }
             else
             {
                 if (_nextBelt != null && (!_nextBelt.HasItem() || _nextBelt.GetCurrentItem() == _currentItem))
                 {
-                    direction = (_nextBelt.GetTransform().position - (Vector3)_currentItem.GetTransform().position).normalized;
+                    direction = (_nextBelt.GetTransform().position - (Vector3)_currentItem.GetRigidbody().position).normalized;
                 }
             }
 
