@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d10bddf76dff544bba406c85e9e9aa, type: 3}
+  m_Name: Merger
+  m_EditorClassIdentifier: 
+  cost: 300
+  prefab: {fileID: 622614462740995595, guid: 33f2fd2e65e89244bad3100b858b929f, type: 3}
+  buildingMode: 0
