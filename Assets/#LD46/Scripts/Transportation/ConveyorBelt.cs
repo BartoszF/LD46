@@ -97,7 +97,6 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
             }
 
             _items.Remove(otherItem);
-
         }
     }
 

@@ -51,11 +51,21 @@ public class Merger : MonoBehaviour, ITransportationItem
             return;
         }
 
-        if(_timer > 0f) {
-            _timer -= Time.fixedDeltaTime;
+        if (_currentInput == CurrentInput.LEFT)
+        {
+            Debug.DrawLine(_leftInputChecker.transform.position - transform.up / 2, _leftInputChecker.transform.position + transform.up / 2, Color.blue);
+        }
+        else
+        {
+            Debug.DrawLine(_rightInputChecker.transform.position - transform.up / 2, _rightInputChecker.transform.position + transform.up / 2, Color.blue);
+        }
+
+        if (_timer > 0f)
+        {
+            _timer -= Time.deltaTime;
             return;
         }
-        if (_currentItem)
+        if (_currentItem != null)
         {
             bool stillHas = false;
             if (_currentInput == CurrentInput.LEFT)
@@ -69,68 +79,62 @@ public class Merger : MonoBehaviour, ITransportationItem
 
             if (stillHas && _outputBelt != null && !_outputBelt.HasItem())
             {
-                //_currentItem.GetRigidbody().velocity = transform.up * speed * Time.fixedDeltaTime;
                 _currentItem.GetTransform().position = _outputBelt.GetTransform().position;
             }
-            else if(!stillHas)
+            else if (!stillHas)
             {
                 _currentItem = null;
-                _timer = 0.5f;
+                _timer = 0.2f;
+                _timeoutTimer = 0f;
                 ChangeInput();
-                Debug.Log("Done, current :" + _currentInput);
+                Debug.Log(name + " Done, current :" + _currentInput);
             }
             return;
         }
 
         if (_currentItem == null)
         {
-            _timeoutTimer += Time.fixedDeltaTime;
-            if (_currentInput == CurrentInput.LEFT)
+            _timeoutTimer += Time.deltaTime;
+            if (_currentInput == CurrentInput.LEFT && _leftInputItem != null)
             {
                 _currentItem = _leftInputItem;
-
-                // if (_currentItem)
-                //     _currentItem.GetTransform().position = _rightInputChecker.transform.position;
             }
-            else
+            else if (_currentInput == CurrentInput.RIGHT && _rightInputItem != null)
             {
                 _currentItem = _rightInputItem;
-                // if (_currentItem)
-                //     _currentItem.GetTransform().position = _rightInputChecker.transform.position;
+            }
+
+            if (_timeoutTimer >= timeoutSeconds)
+            {
+                ChangeInput();
+                Debug.Log(name + " Timeout, current :" + _currentInput);
+                _timeoutTimer = 0f;
             }
         }
         else
         {
             _timeoutTimer = 0f;
         }
-
-        if (_timeoutTimer >= timeoutSeconds)
-        {
-            ChangeInput();
-            Debug.Log("Timeout, current :" + _currentInput);
-            _timeoutTimer = 0f;
-        }
     }
 
     public void OnOutputChanged(ITransportationItem belt)
     {
-        Debug.Log(name + " " + belt);
         _outputBelt = belt;
     }
 
     private void OnRightInput(BeltItem obj)
     {
-        _leftInputItem = obj;
+        _rightInputItem = obj;
     }
 
     private void OnLeftInput(BeltItem obj)
     {
-        _rightInputItem = obj;
+        _leftInputItem = obj;
     }
 
     public bool HasItem()
     {
-        return _currentItem != null;
+        return _currentItem != null || _timeoutTimer <= 0f;
     }
 
     public BeltItem GetCurrentItem()
