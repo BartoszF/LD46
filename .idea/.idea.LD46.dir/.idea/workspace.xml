@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bdb63c52-b971-465d-a32f-45df4f370bc7" name="Default Changelist" comment="Add Rider files, add vox for cart">
+      <change afterPath="$PROJECT_DIR$/Assets/#LD46/Scripts/AnimatedSpriteRenderer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/#LD46/Prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/#LD46/Textures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/#LD46/Vox/MechantCart.vox" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/#LD46/Scripts/AnimatedSpriteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/#LD46/Scripts/AnimatedSpriteRenderer.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Projects\LD46\.idea\.idea.LD46.dir\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ahMKzHJ6ZQKZTIJaskSFSnV89J" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TWShift.4" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bdb63c52-b971-465d-a32f-45df4f370bc7" name="Default Changelist" comment="" />
+      <created>1587183313837</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587183313837</updated>
+      <workItem from="1587183318491" duration="5457000" />
+      <workItem from="1587189276147" duration="4000" />
+    </task>
+    <task id="LOCAL-00001" summary="Add Rider files, add vox for cart">
+      <created>1587187089937</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587187089937</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add Rider files, add vox for cart" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Rider files, add vox for cart" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2276" y="454" key="Vcs.Push.Dialog.v2" timestamp="1587187065225">
+      <screen x="0" y="0" width="3316" height="1440" />
+    </state>
+    <state x="2276" y="454" key="Vcs.Push.Dialog.v2/0.0.3316.1440/-1920.343.1920.1040@0.0.3316.1440" timestamp="1587187065225" />
+  </component>
+</project>
