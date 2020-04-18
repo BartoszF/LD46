@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4670069317248552482}
   - component: {fileID: 4670069317248552483}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: coffeeMachineGFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4670069318824985358}
   - component: {fileID: 4670069318824985359}
-  m_Layer: 0
+  - component: {fileID: 2408038773789119472}
+  - component: {fileID: -2963386495881199894}
+  - component: {fileID: 3533048912579724990}
+  m_Layer: 8
   m_Name: CoffeMachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,15 +108,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4670069318824985457}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 5.5, y: 1, z: -1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4670069317248552482}
   - {fileID: 4670069317202132259}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4670069318824985359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +132,56 @@ MonoBehaviour:
   itemProduced: {fileID: 8188204032576253777, guid: 54b7de4e666240d459c36ee0fc8458a1,
     type: 3}
   secondsToProduce: 2
+--- !u!114 &2408038773789119472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4670069318824985457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e8c47a58c75cc4a8ce5b15f98a1ee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &-2963386495881199894
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4670069318824985457}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0044140816, y: -0.00000014901161}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.9799337, y: 1.9711058}
+  m_EdgeRadius: 0
+--- !u!114 &3533048912579724990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4670069318824985457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce9d3ec85b88e241823e333785da6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7676077751737800618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -154,7 +207,7 @@ PrefabInstance:
     - target: {fileID: 3047110962329217673, guid: ff2d4adea68bfc54fa5fb65bc6296581,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3047110962329217673, guid: ff2d4adea68bfc54fa5fb65bc6296581,
         type: 3}

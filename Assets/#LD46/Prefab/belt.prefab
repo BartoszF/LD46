@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3962668702353378673}
   - component: {fileID: 3962668702353378672}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: beltGFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,9 @@ GameObject:
   - component: {fileID: 3962668703244812254}
   - component: {fileID: 3962668703244812255}
   - component: {fileID: 9179058789706889485}
-  m_Layer: 0
+  - component: {fileID: -5253071007747083371}
+  - component: {fileID: -8867335827709470129}
+  m_Layer: 8
   m_Name: belt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3962668703244812252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3962668702353378673}
@@ -130,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   scrollSpeed: 0.9
+  _currentItem: {fileID: 0}
 --- !u!61 &3962668703244812255
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -177,6 +180,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-5253071007747083371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3962668703244812252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e8c47a58c75cc4a8ce5b15f98a1ee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8867335827709470129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3962668703244812252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce9d3ec85b88e241823e333785da6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6506712241091601862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -243,16 +270,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3047110962329217674, guid: ff2d4adea68bfc54fa5fb65bc6296581,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3047110962329217674, guid: ff2d4adea68bfc54fa5fb65bc6296581,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff2d4adea68bfc54fa5fb65bc6296581, type: 3}

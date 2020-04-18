@@ -27,11 +27,31 @@ public class Tile : MonoBehaviour
         }
     }
 
+
+    private Boolean containsBuilding(Collider2D item) {
+        return item.gameObject.layer == LayerMask.NameToLayer("building");
+    }
+
     void OnMouseDown () {
         GameObject prefabToBuild = null;
         modeToPrefab.TryGetValue(buildingMode.buildingMode, out prefabToBuild);
         if (prefabToBuild != null && actionMode.selectedAction == SelectedActionEnum.Building) {
-            Instantiate(prefabToBuild, transform.localPosition, Quaternion.identity);
+            Vector3 localPos = transform.localPosition;
+            localPos.z = prefabToBuild.transform.position.z;    
+
+            SpriteRenderer prefabRenderer = prefabToBuild.GetComponentInChildren<SpriteRenderer>();
+
+            Vector2 collisionCheckSize = (Vector2) prefabRenderer.size;
+            collisionCheckSize.x -= 0.2f;
+            collisionCheckSize.y -= 0.2f;
+            Collider2D[] collider = Physics2D.OverlapBoxAll((Vector2) transform.localPosition,collisionCheckSize, 0.0f);
+
+            if (Array.Find(collider, containsBuilding) == null) {
+                    GameObject instaniatedGameObject = Instantiate(prefabToBuild, localPos, Quaternion.identity);
+            } else {
+                Debug.Log("Something collides, show some error or something");
+            }
+                
         }
         
     }

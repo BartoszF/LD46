@@ -14,6 +14,7 @@ public class SelectBuilding : MonoBehaviour
     }
 
     void OnMouseDown () {
+        Debug.Log("OnClickButch");
          BuildingMode buildingMode = GameObject.Find("GameState").GetComponent<BuildingMode>();
          buildingMode.setBuildingMode(buildingModeToSet);
     }

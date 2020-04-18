@@ -14,6 +14,7 @@ public class BuildingMode : MonoBehaviour
     }
 
     public void setBuildingMode(BuildingModeEnum buildingMode) {
+        //TODO: Reset building mode upon exitng building action
         if (this.buildingMode == buildingMode) {
             this.buildingMode = BuildingModeEnum.None;
         } else {
@@ -25,5 +26,6 @@ public class BuildingMode : MonoBehaviour
 public enum BuildingModeEnum {
     None,
     ConveyorBelt,
-    Coffee
+    Coffee,
+    Fruits
 }

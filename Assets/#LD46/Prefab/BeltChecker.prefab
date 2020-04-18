@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3047110962329217674}
   - component: {fileID: 3047110962329217675}
   - component: {fileID: 6750996837949134511}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BeltChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
