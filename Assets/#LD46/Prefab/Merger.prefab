@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 622614462740995593}
   - component: {fileID: 622614462740995592}
   - component: {fileID: -3615512045065897699}
+  - component: {fileID: 8326020366823856457}
   m_Layer: 8
   m_Name: Merger
   m_TagString: Untagged
@@ -167,8 +168,20 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.9901876, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8326020366823856457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622614462740995595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce9d3ec85b88e241823e333785da6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &622614463079804692
 GameObject:
   m_ObjectHideFlags: 0
