@@ -11,9 +11,12 @@ public class Rotatable : MonoBehaviour
         selectedAction = GameObject.Find("GameState").GetComponent<SelectedAction>();        
     }
 
-    void OnMouseDown () {
-         if (selectedAction.selectedAction == SelectedActionEnum.Rotation) {
-             transform.Rotate(0, 0, 90);
-         }
+    void OnMouseOver () {
+        if (Input.GetMouseButtonDown(0)){
+            transform.Rotate(0, 0, 90);
+        }
+        if (Input.GetMouseButtonDown(1)){
+            transform.Rotate(0, 0, -90);
+        }
     }
 }

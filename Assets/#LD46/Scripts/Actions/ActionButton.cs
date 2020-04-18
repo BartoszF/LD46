@@ -9,11 +9,13 @@ public class ActionButton : MonoBehaviour
     public SelectedActionEnum expectedAction;
 
     private SelectedAction selectedAction;
+    private BuildingMode buildingMode;
 
     public Button button;
 
     void Start() {
         selectedAction = GameObject.Find("GameState").GetComponent<SelectedAction>();
+        buildingMode = GameObject.Find("GameState").GetComponent<BuildingMode>();
         button.onClick.AddListener(OnMouseDown);
     }
 
@@ -21,7 +23,6 @@ public class ActionButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //TODO: Text should be still visible!
         if (selectedAction.selectedAction == expectedAction) {
             for( int i = 0; i < transform.childCount; ++i )
             {
@@ -36,6 +37,9 @@ public class ActionButton : MonoBehaviour
     }
 
      void OnMouseDown () {
+         if (expectedAction == SelectedActionEnum.Building) {
+            buildingMode.setBuildingMode(BuildingModeEnum.None);
+         }
          selectedAction.setNewAction(expectedAction);
      }
 }
