@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1192598331328369404}
   - component: {fileID: 1192598331328369407}
-  - component: {fileID: 1192598331328369406}
   - component: {fileID: 1192598331328369401}
   - component: {fileID: 1192598331328369400}
+  - component: {fileID: 8188204032576253777}
   m_Layer: 0
   m_Name: coffee
   m_TagString: Untagged
@@ -84,18 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1192598331328369406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1192598331328369403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e22957e3c663fb840aed0b2266b18036, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1192598331328369401
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -120,7 +108,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.4, y: 0.4}
   m_EdgeRadius: 0
 --- !u!50 &1192598331328369400
 Rigidbody2D:
@@ -132,7 +120,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1192598331328369403}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -143,3 +131,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8188204032576253777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192598331328369403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85a40caaaa17608459289790c7586a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
