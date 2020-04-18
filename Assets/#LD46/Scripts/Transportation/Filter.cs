@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Filter : MonoBehaviour, ITransportationItem
+public class Filter : MonoBehaviour
 {
     public BeltItemAsset beltItemToFilter;
     private BeltItem _currentItem;
