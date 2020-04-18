@@ -47,10 +47,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modeToPrefabArr:
   - buildingMode: 0
+    prefab: {fileID: 0}
+  - buildingMode: 1
     prefab: {fileID: 3962668703244812252, guid: 6f149d10ca405144fbb47373e7bb2016,
       type: 3}
-  - buildingMode: 1
-    prefab: {fileID: 0}
+  - buildingMode: 2
+    prefab: {fileID: 4670069318824985457, guid: 34e169b1db284304facc64b516484649,
+      type: 3}
 --- !u!61 &4345594448695842271
 BoxCollider2D:
   m_ObjectHideFlags: 0

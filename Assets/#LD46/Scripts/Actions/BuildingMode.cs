@@ -12,9 +12,18 @@ public class BuildingMode : MonoBehaviour
     {
         buildingMode = BuildingModeEnum.None;
     }
+
+    public void setBuildingMode(BuildingModeEnum buildingMode) {
+        if (this.buildingMode == buildingMode) {
+            this.buildingMode = BuildingModeEnum.None;
+        } else {
+            this.buildingMode = buildingMode;
+        }
+    }
 }
 
 public enum BuildingModeEnum {
+    None,
     ConveyorBelt,
-    None
+    Coffee
 }
