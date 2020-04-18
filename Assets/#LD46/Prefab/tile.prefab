@@ -54,6 +54,9 @@ MonoBehaviour:
   - buildingMode: 2
     prefab: {fileID: 4670069318824985457, guid: 34e169b1db284304facc64b516484649,
       type: 3}
+  - buildingMode: 3
+    prefab: {fileID: 6904368909505532661, guid: 0cc7eabbf30e6834f83ebb30d2e8682e,
+      type: 3}
 --- !u!61 &4345594448695842271
 BoxCollider2D:
   m_ObjectHideFlags: 0

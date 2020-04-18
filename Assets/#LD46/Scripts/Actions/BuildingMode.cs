@@ -26,5 +26,6 @@ public class BuildingMode : MonoBehaviour
 public enum BuildingModeEnum {
     None,
     ConveyorBelt,
-    Coffee
+    Coffee,
+    Fruits
 }
