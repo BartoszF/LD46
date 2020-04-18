@@ -129,8 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5cb8e73c502fb04eb89feff67075576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemProduced: {fileID: 8188204032576253777, guid: 54b7de4e666240d459c36ee0fc8458a1,
-    type: 3}
+  itemProduced: {fileID: 11400000, guid: 59a74c7efa8e4674d88ccebbc5f88d97, type: 2}
   secondsToProduce: 2
 --- !u!114 &2408038773789119472
 MonoBehaviour:

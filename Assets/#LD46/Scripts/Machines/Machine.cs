@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Machine : MonoBehaviour
 {
-    public BeltItem itemProduced;
+    public BeltItemAsset itemProduced;
 
     public float secondsToProduce = 2f;
 
@@ -27,7 +27,8 @@ public class Machine : MonoBehaviour
         if (_timer >= secondsToProduce && _outputBelt != null && !_outputBelt.HasItem())
         {
             _timer = 0;
-            Instantiate(itemProduced, _output.position, Quaternion.identity);
+            GameObject obj = itemProduced.InstantiateGO();
+            obj.transform.position = _output.position;
         }
 
         _timer += Time.fixedDeltaTime;
