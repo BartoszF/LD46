@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class AppleItem : BeltItem
 {
-    void Start() {
+    void Start()
+    {
         base.Start();
     }
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         base.FixedUpdate();
     }
 }
