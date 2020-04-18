@@ -14,9 +14,9 @@ public class TileMap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < width; i++)
+        for (int i = -width/2; i < width/2; i++)
         {
-            for (int j = 0; j < height; j++)
+            for (int j = -height/2; j < height/2; j++)
             {
                 Instantiate(tilePrefab, new Vector3(i,j, 0), Quaternion.identity);
             }
