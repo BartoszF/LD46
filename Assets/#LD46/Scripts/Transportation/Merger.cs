@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Merger : MonoBehaviour, ITransportationItem
+public class Merger : MonoBehaviour
 {
 
     enum CurrentInput
@@ -87,7 +87,6 @@ public class Merger : MonoBehaviour, ITransportationItem
                 _timer = 0.2f;
                 _timeoutTimer = 0f;
                 ChangeInput();
-                Debug.Log(name + " Done, current :" + _currentInput);
             }
             return;
         }
@@ -107,7 +106,6 @@ public class Merger : MonoBehaviour, ITransportationItem
             if (_timeoutTimer >= timeoutSeconds)
             {
                 ChangeInput();
-                Debug.Log(name + " Timeout, current :" + _currentInput);
                 _timeoutTimer = 0f;
             }
         }

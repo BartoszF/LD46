@@ -28,5 +28,6 @@ public enum BuildingModeEnum {
     ConveyorBelt,
     Coffee,
     Fruits,
-    Merger
+    Merger,
+    Filter
 }
