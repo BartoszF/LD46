@@ -14,6 +14,7 @@ public class BuildingMode : MonoBehaviour
     }
 
     public void setBuildingMode(BuildingModeEnum buildingMode) {
+        //TODO: Reset building mode upon exitng building action
         if (this.buildingMode == buildingMode) {
             this.buildingMode = BuildingModeEnum.None;
         } else {

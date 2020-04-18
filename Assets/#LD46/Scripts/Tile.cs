@@ -31,7 +31,9 @@ public class Tile : MonoBehaviour
         GameObject prefabToBuild = null;
         modeToPrefab.TryGetValue(buildingMode.buildingMode, out prefabToBuild);
         if (prefabToBuild != null && actionMode.selectedAction == SelectedActionEnum.Building) {
-            Instantiate(prefabToBuild, transform.localPosition, Quaternion.identity);
+            Vector3 localPos = transform.localPosition;
+            localPos.z = 1;
+            Instantiate(prefabToBuild, localPos, Quaternion.identity);
         }
         
     }

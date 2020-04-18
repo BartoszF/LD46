@@ -18,7 +18,7 @@ public class TileMap : MonoBehaviour
         {
             for (int j = -height/2; j < height/2; j++)
             {
-                Instantiate(tilePrefab, new Vector3(i,j, 0), Quaternion.identity);
+                Instantiate(tilePrefab, new Vector3(i,j, 2), Quaternion.identity);
             }
         }
         
