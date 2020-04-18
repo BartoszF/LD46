@@ -10,9 +10,16 @@ public class ConveyorBelt : MonoBehaviour
     private Material _material;
     private float _currentScroll = 0f;
     private List<Rigidbody2D> _items;
+    private ConveyorBelt _nextBelt;
+    private OutputChecker _outputChecker;
+
+    public Rigidbody2D _currentItem;
+    private bool _arrivedCenter = false;
     // Start is called before the first frame update
     void Start()
     {
+        _outputChecker = transform.Find("Output").GetComponent<OutputChecker>();
+        _outputChecker.OnChange += this.OnBeltChange;
         _items = new List<Rigidbody2D>();
         Transform child = transform.GetChild(0);
         _material = child.GetComponent<SpriteRenderer>().material;
@@ -23,6 +30,38 @@ public class ConveyorBelt : MonoBehaviour
     {
         _currentScroll += scrollSpeed * Time.deltaTime;
         _material.mainTextureOffset = new Vector2(_currentScroll, 0);
+
+        if (_currentItem)
+        {
+            Debug.DrawLine(transform.position - transform.right / 2, transform.position + transform.right / 2, Color.red);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (_currentItem)
+        {
+            Vector3 direction = Vector3.zero;
+
+            if (Vector3.Distance(_currentItem.position, transform.position) < 0.1f)
+            {
+                _arrivedCenter = true;
+            }
+
+            if (!_arrivedCenter)
+            {
+                direction = (transform.position - (Vector3)_currentItem.position).normalized;
+            }
+            else
+            {
+                if (_nextBelt && (!_nextBelt.HasItem() || _nextBelt.GetCurrentItem() == _currentItem))
+                {
+                    direction = (_nextBelt.transform.position - (Vector3)_currentItem.position).normalized;
+                }
+            }
+
+            _currentItem.velocity = direction * speed * Time.fixedDeltaTime;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -32,8 +71,7 @@ public class ConveyorBelt : MonoBehaviour
             other.attachedRigidbody.velocity = Vector2.zero;
             if (!HasItem())
             {
-                BeltItem item = other.GetComponent<BeltItem>();
-                item.SetCurrentBelt(this);
+                _currentItem = other.attachedRigidbody;
             }
             _items.Add(other.attachedRigidbody);
         }
@@ -43,17 +81,19 @@ public class ConveyorBelt : MonoBehaviour
     {
         if (other.GetComponent<BeltItem>())
         {
-            BeltItem item = _items[0].GetComponent<BeltItem>();
-            if (item.GetCurrentBelt() == this)
+            if (HasItem() && _currentItem != _items[0])
             {
-                item.SetCurrentBelt(null);
+                _currentItem = other.attachedRigidbody;
+                _arrivedCenter = false;
             }
+            else if (_currentItem == other.attachedRigidbody)
+            {
+                _currentItem = null;
+                _arrivedCenter = false;
+            }
+
             _items.Remove(other.attachedRigidbody);
-            if (HasItem())
-            {
-                item = _items[0].GetComponent<BeltItem>();
-                item.SetCurrentBelt(this);
-            }
+
         }
     }
 
@@ -70,5 +110,17 @@ public class ConveyorBelt : MonoBehaviour
     public bool HasItem()
     {
         return _items.Count > 0;
+    }
+
+    public Rigidbody2D GetCurrentItem()
+    {
+        return _currentItem;
+    }
+
+    public void OnBeltChange(ConveyorBelt belt)
+    {
+        _nextBelt = belt;
+
+        Debug.Log(name + " next is " + _nextBelt.name);
     }
 }

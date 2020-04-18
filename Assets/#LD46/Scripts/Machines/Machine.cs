@@ -24,9 +24,6 @@ public class Machine : MonoBehaviour
     // Update is called once per frame
     protected void FixedUpdate()
     {
-        if(_timer >= secondsToProduce) {
-            Debug.Log(_outputBelt.HasItem());
-        }
         if (_timer >= secondsToProduce && !_outputBelt.HasItem())
         {
             _timer = 0;

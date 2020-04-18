@@ -10,7 +10,7 @@ public class OutputChecker : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.GetComponent<ConveyorBelt>() != null)
+        if (other.GetComponent<ConveyorBelt>() != null)
         {
             belt = other.GetComponent<ConveyorBelt>();
             OnChange(belt);
@@ -19,7 +19,8 @@ public class OutputChecker : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if(other.GetComponent<ConveyorBelt>() != null)
+        ConveyorBelt otherBelt = other.GetComponent<ConveyorBelt>();
+        if (otherBelt && otherBelt == belt)
         {
             belt = null;
             OnChange(belt);
