@@ -10,7 +10,8 @@ public class ConveyorBelt : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _material = GetComponent<SpriteRenderer>().material;
+        Transform child = transform.GetChild(0);
+        _material = child.GetComponent<SpriteRenderer>().material;
     }
 
     // Update is called once per frame
@@ -18,5 +19,17 @@ public class ConveyorBelt : MonoBehaviour
     {
         _currentScroll += speed * Time.deltaTime;
         _material.mainTextureOffset = new Vector2(_currentScroll, 0);
+
+        Debug.DrawLine(transform.position, transform.position + transform.up*3, Color.cyan);
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        other.attachedRigidbody.velocity = transform.up * speed;
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        other.attachedRigidbody.velocity = Vector2.zero;
     }
 }
