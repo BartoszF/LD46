@@ -17,4 +17,12 @@ public class BeltItem : MonoBehaviour
     {
         
     }
+
+    public Rigidbody2D GetRigidbody() {
+        return _rb;
+    }
+
+    public Transform GetTransform() {
+        return transform;
+    }
 }

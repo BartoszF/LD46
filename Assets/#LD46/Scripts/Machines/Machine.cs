@@ -9,22 +9,22 @@ public class Machine : MonoBehaviour
     public float secondsToProduce = 2f;
 
     private Transform _output;
-    private OutputChecker _outputChecker;
-    private ConveyorBelt _outputBelt;
+    private BeltChecker _outputChecker;
+    private ITransportationItem _outputBelt;
     private float _timer = 0f;
 
     // Start is called before the first frame update
     protected void Start()
     {
         _output = transform.Find("Output");
-        _outputChecker = _output.GetComponent<OutputChecker>();
+        _outputChecker = _output.GetComponent<BeltChecker>();
         _outputChecker.OnChange += this.OnBeltChange;
     }
 
     // Update is called once per frame
     protected void FixedUpdate()
     {
-        if (_timer >= secondsToProduce && _outputBelt && !_outputBelt.HasItem())
+        if (_timer >= secondsToProduce && _outputBelt != null && !_outputBelt.HasItem())
         {
             _timer = 0;
             Instantiate(itemProduced, _output.position, Quaternion.identity);
@@ -33,7 +33,7 @@ public class Machine : MonoBehaviour
         _timer += Time.fixedDeltaTime;
     }
 
-    private void OnBeltChange(ConveyorBelt belt) {
+    private void OnBeltChange(ITransportationItem belt) {
         this._outputBelt = belt;
     }
 }

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemProduced: {fileID: 889451752313698181, guid: 373afac46743a5a4396fea1bcb8908fc,
     type: 3}
-  secondsToProduce: 2
+  secondsToProduce: 3
 --- !u!1 &6904368910076387233
 GameObject:
   m_ObjectHideFlags: 0
