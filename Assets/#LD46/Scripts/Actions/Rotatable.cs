@@ -12,6 +12,7 @@ public class Rotatable : MonoBehaviour
     }
 
     void OnMouseOver () {
+        //TODO: Check whether rotation is possible
         if (Input.GetMouseButtonDown(0)){
             transform.Rotate(0, 0, 90);
         }
