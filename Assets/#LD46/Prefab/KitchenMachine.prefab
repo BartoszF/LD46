@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2242323930985482261}
   - component: {fileID: 7783482797135463731}
   - component: {fileID: 954180198391125762}
+  - component: {fileID: 8085289856595788192}
   m_Layer: 0
   m_Name: KitchenMachine
   m_TagString: Untagged
@@ -88,6 +89,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0069208, y: 1.9962659}
   m_EdgeRadius: 0
+--- !u!114 &8085289856595788192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6904368909505532661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce9d3ec85b88e241823e333785da6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6904368910076387233
 GameObject:
   m_ObjectHideFlags: 0

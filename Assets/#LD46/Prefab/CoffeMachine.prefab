@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 4670069318824985359}
   - component: {fileID: 2408038773789119472}
   - component: {fileID: -2963386495881199894}
+  - component: {fileID: 3533048912579724990}
   m_Layer: 0
   m_Name: CoffeMachine
   m_TagString: Untagged
@@ -169,6 +170,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9799337, y: 1.9711058}
   m_EdgeRadius: 0
+--- !u!114 &3533048912579724990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4670069318824985457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce9d3ec85b88e241823e333785da6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7676077751737800618
 PrefabInstance:
   m_ObjectHideFlags: 0
