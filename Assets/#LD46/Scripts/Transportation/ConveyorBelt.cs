@@ -50,17 +50,17 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
 
             if (!_arrivedCenter)
             {
-                direction = (transform.position - (Vector3)_currentItem.GetRigidbody().position).normalized;
+                direction = (transform.position - (Vector3)_currentItem.GetRigidbody().position);
             }
             else
             {
                 if (_nextBelt != null && (!_nextBelt.HasItem() || _nextBelt.GetCurrentItem() == _currentItem))
                 {
-                    direction = (_nextBelt.GetTransform().position - (Vector3)_currentItem.GetRigidbody().position).normalized;
+                    direction = (_nextBelt.GetTransform().position - (Vector3)_currentItem.GetRigidbody().position);
                 }
             }
 
-            _currentItem.GetRigidbody().velocity = direction * speed * Time.fixedDeltaTime;
+            _currentItem.GetRigidbody().velocity = direction.normalized * speed * Time.deltaTime;
         }
     }
 

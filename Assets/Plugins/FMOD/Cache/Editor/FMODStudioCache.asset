@@ -14,13 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: fmodProject/LD46/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637227873113369559
+  lastModified: 637226568729980579
   LoadResult: 0
   FileSizes:
   - Name: Desktop
     Value: 688
   Exists: 1
 --- !u!114 &-5744548356897883880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: fmodProject/LD46/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637226568729355016
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-1993291847673569514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,14 +70,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -8366157916913143905}
-  - {fileID: 7929950430941441365}
+  - {fileID: -1993291847673569514}
   EditorEvents: []
   EditorParameters: []
   MasterBanks:
-  - {fileID: 7929950430941441365}
+  - {fileID: -1993291847673569514}
   StringsBanks:
   - {fileID: -8366157916913143905}
-  stringsBankWriteTime: 637227873113369559
+  stringsBankWriteTime: 637226568729980579
   cacheVersion: 3
 --- !u!114 &7929950430941441365
 MonoBehaviour:
