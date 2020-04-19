@@ -83,7 +83,9 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
 
     void OnTriggerExit2D(Collider2D other)
     {
-        other.attachedRigidbody.velocity = Vector2.zero;
+        if(other.attachedRigidbody != null)
+            other.attachedRigidbody.velocity = Vector2.zero;
+            
         BeltItem otherItem = other.GetComponent<BeltItem>();
 
         if (otherItem)

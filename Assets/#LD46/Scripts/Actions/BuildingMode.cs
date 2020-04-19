@@ -5,13 +5,13 @@ using UnityEngine;
 public class BuildingMode : MonoBehaviour
 {
 
-    public BuildingModeEnum buildingMode;
+    public static BuildingMode INSTANCE;
+    public BuildableEntity currentEntity;
     public int rotation = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        buildingMode = BuildingModeEnum.None;
+        INSTANCE = this;
     }
 
     void Update()
@@ -38,28 +38,8 @@ public class BuildingMode : MonoBehaviour
         }
     }
 
-    public void setBuildingMode(BuildingModeEnum buildingMode)
+    public void setBuildingMode(BuildableEntity entity)
     {
-        //TODO: Reset building mode upon exitng building action
-        if (this.buildingMode == buildingMode)
-        {
-            this.buildingMode = BuildingModeEnum.None;
-        }
-        else
-        {
-            this.buildingMode = buildingMode;
-        }
+        currentEntity = entity;
     }
-}
-
-public enum BuildingModeEnum
-{
-    None,
-    ConveyorBelt,
-    Coffee,
-    Fruits,
-    Merger,
-    Filter,
-    ServerRoom,
-    Programmer
 }

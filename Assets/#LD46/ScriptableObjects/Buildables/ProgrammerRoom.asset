@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d10bddf76dff544bba406c85e9e9aa, type: 3}
   m_Name: ProgrammerRoom
   m_EditorClassIdentifier: 
+  name: Developer box
+  description: 
   cost: 150
   prefab: {fileID: 6299034466782813693, guid: a084f20dcc6d6aa4f9b541edc79b9f28, type: 3}
+  sprite: {fileID: 21300000, guid: 86a57848a66965a428fa29f5c6584ab7, type: 3}
   buildingMode: 7
   orientationDataArr: []

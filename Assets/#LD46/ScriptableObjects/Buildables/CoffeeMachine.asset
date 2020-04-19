@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d10bddf76dff544bba406c85e9e9aa, type: 3}
   m_Name: CoffeeMachine
   m_EditorClassIdentifier: 
+  name: Coffe Machine
+  description: Provides liquids every developer needs to live
   cost: 127
   prefab: {fileID: 4670069318824985457, guid: 34e169b1db284304facc64b516484649, type: 3}
+  sprite: {fileID: 21300000, guid: d059e738c9d1d2c4791d9af4f15ae1f5, type: 3}
   buildingMode: 2
   orientationDataArr:
   - orientation: 0

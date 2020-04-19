@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d10bddf76dff544bba406c85e9e9aa, type: 3}
   m_Name: Conveyor
   m_EditorClassIdentifier: 
+  name: Conveyor Belt
+  description: Moves stuff...
   cost: 25
   prefab: {fileID: 3962668703244812252, guid: 6f149d10ca405144fbb47373e7bb2016, type: 3}
+  sprite: {fileID: -3765122757252021322, guid: 30607622ed3740f42bf52f3d2b8b2355, type: 3}
   buildingMode: 1
   orientationDataArr:
   - orientation: 0

@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d10bddf76dff544bba406c85e9e9aa, type: 3}
   m_Name: Filter
   m_EditorClassIdentifier: 
+  name: Filter
+  description: 
   cost: 300
   prefab: {fileID: 6323392776994614691, guid: 219964159db1a894e8fa799d1a6d2f12, type: 3}
+  sprite: {fileID: 21300000, guid: 1a45c18d6189e5c4083625e039260bf4, type: 3}
   buildingMode: 5
   orientationDataArr: []

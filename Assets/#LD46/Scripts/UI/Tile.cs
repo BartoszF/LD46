@@ -9,7 +9,6 @@ public class Tile : MonoBehaviour
     private SelectedAction actionMode;
 
     private BuildingMode buildingMode;
-    public List<BuildableEntity> buildableEntities;
 
     private PlayerResources playerResources;
 
@@ -37,9 +36,9 @@ public class Tile : MonoBehaviour
         if(EventSystem.current.IsPointerOverGameObject()) {
             return;
         }
-        if (ghost == null &&  buildingMode.buildingMode != BuildingModeEnum.None) {
-            BuildableEntity buildable = buildableEntities.Find(it => it.buildingMode == buildingMode.buildingMode);
-            if (buildable != null && actionMode.selectedAction == SelectedActionEnum.Building && isPossibleToPlace(buildable)) {
+        if (ghost == null &&  buildingMode.currentEntity != null) {
+            BuildableEntity buildable = buildingMode.currentEntity;
+            if (buildable != null && isPossibleToPlace(buildable)) {
                 SpriteRenderer spriteRenderer = buildable.prefab.GetComponentInChildren<SpriteRenderer>();
                 ghost = Instantiate(spriteRenderer.gameObject, transform.localPosition, Quaternion.identity);
                 ghost.transform.localScale = buildable.prefab.transform.localScale;
@@ -59,8 +58,8 @@ public class Tile : MonoBehaviour
         if(EventSystem.current.IsPointerOverGameObject()) {
             return;
         }
-        BuildableEntity buildable = buildableEntities.Find(it => it.buildingMode == buildingMode.buildingMode);
-        if (buildable != null && actionMode.selectedAction == SelectedActionEnum.Building) {
+        BuildableEntity buildable = buildingMode.currentEntity;
+        if (buildable != null) {
             if (isPossibleToPlace(buildable) && playerResources.spendMuniIfPossible(buildable.cost)) {
                 GameObject instaniatedGameObject = Instantiate(buildable.prefab, transform.position, Quaternion.Euler(0,0,/*buildingMode.rotation * 90*/0));
                 instaniatedGameObject.transform.position = new Vector3(instaniatedGameObject.transform.position.x, instaniatedGameObject.transform.position.y, buildable.prefab.transform.position.z);

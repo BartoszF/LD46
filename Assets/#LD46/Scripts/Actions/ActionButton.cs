@@ -37,9 +37,9 @@ public class ActionButton : MonoBehaviour
     }
 
      void OnMouseDown () {
-         if (expectedAction == SelectedActionEnum.Building) {
-            buildingMode.setBuildingMode(BuildingModeEnum.None);
-         }
-         selectedAction.setNewAction(expectedAction);
+        //  if (expectedAction == SelectedActionEnum.Building) {
+        //     buildingMode.setBuildingMode(BuildingModeEnum.None);
+        //  }
+        //  selectedAction.setNewAction(expectedAction);
      }
 }

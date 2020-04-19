@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d10bddf76dff544bba406c85e9e9aa, type: 3}
   m_Name: Merger
   m_EditorClassIdentifier: 
+  name: Merger
+  description: 
   cost: 300
   prefab: {fileID: 622614462740995595, guid: 33f2fd2e65e89244bad3100b858b929f, type: 3}
+  sprite: {fileID: 21300000, guid: 4b6c712bd53502649bb6303a3952aa2f, type: 3}
   buildingMode: 4
   orientationDataArr:
   - orientation: 0
