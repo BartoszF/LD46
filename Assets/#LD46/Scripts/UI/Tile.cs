@@ -21,13 +21,18 @@ public class Tile : MonoBehaviour
         playerResources = GameObject.Find("GameState").GetComponent<PlayerResources>();
     }
 
+    void Update() {
+        // if(ghost) {
+        //     ghost.transform.rotation = Quaternion.Euler(0,0,buildingMode.rotation * 90);
+        // }
+    }
+
 
     private Boolean containsBuilding(Collider2D item) {
         return item.gameObject.layer == LayerMask.NameToLayer("building");
     }
 
     void OnMouseOver() {
-        Debug.Log("mouse over");
         if (ghost == null &&  buildingMode.buildingMode != BuildingModeEnum.None) {
             BuildableEntity buildable = buildableEntities.Find(it => it.buildingMode == buildingMode.buildingMode);
             if (buildable != null && actionMode.selectedAction == SelectedActionEnum.Building && isPossibleToPlace(buildable)) {
@@ -41,7 +46,6 @@ public class Tile : MonoBehaviour
     }
 
     void OnMouseExit() {
-        Debug.Log("mouse exits");
         if (ghost != null) {
             Destroy(ghost);
         }
@@ -51,7 +55,7 @@ public class Tile : MonoBehaviour
         BuildableEntity buildable = buildableEntities.Find(it => it.buildingMode == buildingMode.buildingMode);
         if (buildable != null && actionMode.selectedAction == SelectedActionEnum.Building) {
             if (isPossibleToPlace(buildable) && playerResources.spendMuniIfPossible(buildable.cost)) {
-                GameObject instaniatedGameObject = Instantiate(buildable.prefab, transform.position, Quaternion.identity);
+                GameObject instaniatedGameObject = Instantiate(buildable.prefab, transform.position, Quaternion.Euler(0,0,/*buildingMode.rotation * 90*/0));
                 instaniatedGameObject.transform.position = new Vector3(instaniatedGameObject.transform.position.x, instaniatedGameObject.transform.position.y, buildable.prefab.transform.position.z);
             } else {
                 Debug.Log("Something collides or not enough money, show some error or something");

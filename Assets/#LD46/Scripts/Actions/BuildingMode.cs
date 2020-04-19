@@ -6,6 +6,7 @@ public class BuildingMode : MonoBehaviour
 {
 
     public BuildingModeEnum buildingMode;
+    public int rotation = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -13,17 +14,46 @@ public class BuildingMode : MonoBehaviour
         buildingMode = BuildingModeEnum.None;
     }
 
-    public void setBuildingMode(BuildingModeEnum buildingMode) {
+    void Update()
+    {
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            rotation -= 1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            rotation += 1;
+        }
+
+        if (rotation > 3)
+        {
+            rotation = 0;
+        }
+
+        if (rotation < 0)
+        {
+            rotation = 3;
+        }
+    }
+
+    public void setBuildingMode(BuildingModeEnum buildingMode)
+    {
         //TODO: Reset building mode upon exitng building action
-        if (this.buildingMode == buildingMode) {
+        if (this.buildingMode == buildingMode)
+        {
             this.buildingMode = BuildingModeEnum.None;
-        } else {
+        }
+        else
+        {
             this.buildingMode = buildingMode;
         }
     }
 }
 
-public enum BuildingModeEnum {
+public enum BuildingModeEnum
+{
     None,
     ConveyorBelt,
     Coffee,

@@ -103,6 +103,12 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
         }
     }
 
+    void OnDestroy() {
+        if(_currentItem) {
+            Destroy(_currentItem.gameObject);
+        }
+    }
+
     public Vector3 GetDirection()
     {
         return transform.up;
