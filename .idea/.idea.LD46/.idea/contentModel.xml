@@ -22,6 +22,7 @@
             <e p="Items" t="Include">
               <e p="AppleItem.cs" t="Include" />
               <e p="BeltItem.cs" t="Include" />
+              <e p="BeltItemAsset.cs" t="Include" />
               <e p="CoffeeItem.cs" t="Include" />
             </e>
             <e p="Machines" t="Include">
@@ -29,15 +30,21 @@
               <e p="KitchenMachine.cs" t="Include" />
               <e p="Machine.cs" t="Include" />
             </e>
-            <e p="Tile.cs" t="Include" />
-            <e p="TileMap.cs" t="Include" />
             <e p="Transportation" t="Include">
               <e p="BeltChecker.cs" t="Include" />
               <e p="ConveyorBelt.cs" t="Include" />
+              <e p="Filter.cs" t="Include" />
               <e p="InputChecker.cs" t="Include" />
               <e p="ITransportationItem.cs" t="Include" />
               <e p="Merger.cs" t="Include" />
-              <e p="MergerInput.cs" t="Include" />
+              <e p="TransportationInput.cs" t="Include" />
+            </e>
+            <e p="UI" t="Include">
+              <e p="ModeUpdate.cs" t="Include" />
+              <e p="MuniUpdater.cs" t="Include" />
+              <e p="PlayerResources.cs" t="Include" />
+              <e p="Tile.cs" t="Include" />
+              <e p="TileMap.cs" t="Include" />
             </e>
           </e>
         </e>
