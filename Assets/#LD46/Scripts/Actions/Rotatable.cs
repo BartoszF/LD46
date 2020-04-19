@@ -7,7 +7,7 @@ public class Rotatable : MonoBehaviour
 
     SelectedAction selectedAction;
 
-    public OrientationManager orientationManager;
+    //public OrientationManager orientationManager;
 
     void Start() {
         selectedAction = GameObject.Find("GameState").GetComponent<SelectedAction>();        
@@ -17,15 +17,15 @@ public class Rotatable : MonoBehaviour
         //TODO: Check whether rotation is possible
         if (Input.GetMouseButtonDown(0)){
             transform.Rotate(0, 0, 90);
-            if (orientationManager != null) {
-                orientationManager.rotateRight();
-            }
+            // if (orientationManager != null) {
+            //     orientationManager.rotateRight();
+            // }
         }
         if (Input.GetMouseButtonDown(1)){
             transform.Rotate(0, 0, -90);
-            if (orientationManager != null) {
-                orientationManager.rotateLeft();
-            }
+            // if (orientationManager != null) {
+            //     orientationManager.rotateLeft();
+            // }
         }
     }
 }

@@ -16,18 +16,4 @@ MonoBehaviour:
   description: Provides liquids every developer needs to live
   cost: 127
   prefab: {fileID: 4670069318824985457, guid: 34e169b1db284304facc64b516484649, type: 3}
-  sprite: {fileID: 21300000, guid: d059e738c9d1d2c4791d9af4f15ae1f5, type: 3}
-  buildingMode: 2
-  orientationDataArr:
-  - orientation: 0
-    spriteToRender: {fileID: 21300000, guid: 5f85368c7b622b840ba227e561a8996e, type: 3}
-    controller: {fileID: 0}
-  - orientation: 3
-    spriteToRender: {fileID: 21300000, guid: 78cd113eb4de2764a97b2710c5622c75, type: 3}
-    controller: {fileID: 0}
-  - orientation: 2
-    spriteToRender: {fileID: 21300000, guid: a3befb1c28e169f4ebc4105b9782a513, type: 3}
-    controller: {fileID: 0}
-  - orientation: 1
-    spriteToRender: {fileID: 21300000, guid: f559f4b1498000547a6459a8e8279bf0, type: 3}
-    controller: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 5f85368c7b622b840ba227e561a8996e, type: 3}

@@ -14,15 +14,5 @@ public class BuildableEntity : ScriptableObject
 
     public Sprite sprite;
 
-    public List<OrientationData> orientationDataArr = new List<OrientationData>(4);
 
-}
-
-[Serializable]
-public struct OrientationData
-{
-    public OrientationEnum orientation;
-    public Sprite spriteToRender;
-
-    public RuntimeAnimatorController controller;
 }

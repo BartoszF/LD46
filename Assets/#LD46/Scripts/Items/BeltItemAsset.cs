@@ -8,8 +8,10 @@ public class BeltItemAsset : ScriptableObject
     public string name;
     public Sprite sprite;
 
+    public GameObject prefab;
+
     public GameObject InstantiateGO() {
-        GameObject go = new GameObject();
+        GameObject go = Instantiate(prefab, Vector3.zero, Quaternion.identity);
 
         go.name = name;
 

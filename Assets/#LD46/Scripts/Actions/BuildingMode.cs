@@ -19,12 +19,12 @@ public class BuildingMode : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            rotation -= 1;
+            rotation += 1;
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            rotation += 1;
+            rotation -= 1;
         }
 
         if (rotation > 3)

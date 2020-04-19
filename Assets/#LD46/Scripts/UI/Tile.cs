@@ -12,67 +12,130 @@ public class Tile : MonoBehaviour
 
     private PlayerResources playerResources;
 
-    private GameObject ghost = null;
+    private BuildableEntity _lastItem
+    {
+        get
+        {
+            return _tileMap._lastItem;
+        }
+        set
+        {
+            _tileMap._lastItem = value;
+        }
+    }
     private List<BuildableEntity> ghostlyPrefabs;
 
-    void Start() {
+    private TileMap _tileMap;
+
+    private GameObject ghost
+    {
+        get
+        {
+            return _tileMap.ghost;
+        }
+        set
+        {
+            _tileMap.ghost = value;
+        }
+    }
+
+    void Start()
+    {
         buildingMode = GameObject.Find("GameState").GetComponent<BuildingMode>();
         actionMode = GameObject.Find("GameState").GetComponent<SelectedAction>();
         playerResources = GameObject.Find("GameState").GetComponent<PlayerResources>();
+        _tileMap = transform.parent.GetComponent<TileMap>();
     }
 
-    void Update() {
-        // if(ghost) {
-        //     ghost.transform.rotation = Quaternion.Euler(0,0,buildingMode.rotation * 90);
-        // }
-    }
-
-
-    private Boolean containsBuilding(Collider2D item) {
-        return item.gameObject.layer == LayerMask.NameToLayer("building");
-    }
-
-    void OnMouseOver() {
-        if(EventSystem.current.IsPointerOverGameObject()) {
-            return;
-        }
-        if (ghost == null &&  buildingMode.currentEntity != null) {
-            BuildableEntity buildable = buildingMode.currentEntity;
-            if (buildable != null && isPossibleToPlace(buildable)) {
-                SpriteRenderer spriteRenderer = buildable.prefab.GetComponentInChildren<SpriteRenderer>();
-                ghost = Instantiate(spriteRenderer.gameObject, transform.localPosition, Quaternion.identity);
-                ghost.transform.localScale = buildable.prefab.transform.localScale;
-                SpriteRenderer dupa = ghost.GetComponent<SpriteRenderer>();
-                dupa.color = new Color(60, 255, 30, 0.5f);
+    void Update()
+    {
+        if (ghost)
+        {
+            ghost.transform.rotation = Quaternion.Euler(0, 0, buildingMode.rotation * 90);
+            if (buildingMode.currentEntity == null)
+            {
+                Destroy(ghost);
             }
         }
     }
 
-    void OnMouseExit() {
-        if (ghost != null) {
-            Destroy(ghost);
-        }
+
+    private Boolean containsBuilding(Collider2D item)
+    {
+        return item.gameObject.layer == LayerMask.NameToLayer("building");
     }
 
-    void OnMouseDown () {
-        if(EventSystem.current.IsPointerOverGameObject()) {
+    void OnMouseOver()
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
             return;
         }
         BuildableEntity buildable = buildingMode.currentEntity;
-        if (buildable != null) {
-            if (isPossibleToPlace(buildable) && playerResources.spendMuniIfPossible(buildable.cost)) {
-                GameObject instaniatedGameObject = Instantiate(buildable.prefab, transform.position, Quaternion.Euler(0,0,/*buildingMode.rotation * 90*/0));
-                instaniatedGameObject.transform.position = new Vector3(instaniatedGameObject.transform.position.x, instaniatedGameObject.transform.position.y, buildable.prefab.transform.position.z);
-            } else {
-                Debug.Log("Something collides or not enough money, show some error or something");
-            }   
+
+        if (ghost == null && buildable != null)
+        {
+            _lastItem = buildable;
+            SpawnGhost();
         }
-        
+        if (ghost != null && buildable != null)
+        {
+            ghost.transform.position = transform.position;
+            if (_lastItem == null || (_lastItem.name != buildable.name))
+            {
+                _lastItem = buildable;
+                SpawnGhost();
+            }
+
+
+            MeshRenderer mesh = ghost.transform.Find("GFX").GetComponent<MeshRenderer>();
+            if (buildable != null)
+            {
+                if (isPossibleToPlace(buildable))
+                {
+                    mesh.material.color = new Color(60f/255f, 1.0f, 30f/255f, 0.5f);
+                }
+                else
+                {
+                    mesh.material.color = new Color(1.0f, 60f/255f, 30f/255f, 0.5f);
+                }
+            }
+        }
     }
 
-    bool isPossibleToPlace(BuildableEntity buildable) {
+    void SpawnGhost()
+    {
+        Destroy(ghost.gameObject);
+        ghost = Instantiate(_lastItem.prefab, transform.localPosition, Quaternion.identity);
+        ghost.transform.Find("holder").gameObject.active = false;
+        ghost.transform.SetParent(transform);
+    }
+
+    void OnMouseDown()
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+        BuildableEntity buildable = buildingMode.currentEntity;
+        if (buildable != null)
+        {
+            if (isPossibleToPlace(buildable) && playerResources.spendMuniIfPossible(buildable.cost))
+            {
+                GameObject instaniatedGameObject = Instantiate(buildable.prefab, transform.position, Quaternion.Euler(0, 0, buildingMode.rotation * 90));
+            }
+            else
+            {
+                Debug.Log("Something collides or not enough money, show some error or something");
+            }
+        }
+
+    }
+
+    bool isPossibleToPlace(BuildableEntity buildable)
+    {
         Vector3 localPos = transform.localPosition;
-        localPos.z = buildable.prefab.transform.position.z;    
+        localPos.z = buildable.prefab.transform.position.z;
 
         BoxCollider2D prefabCollider = buildable.prefab.transform.Find("holder").GetComponent<BoxCollider2D>();
         var scale = buildable.prefab.transform.localScale;
@@ -83,8 +146,8 @@ public class Tile : MonoBehaviour
 
 #if UNITY_EDITOR
 
-        Vector2 right = orientation * Vector2.right * size.x/2f;
-        Vector2 up = orientation * Vector2.up * size.y/2f;
+        Vector2 right = orientation * Vector2.right * size.x / 2f;
+        Vector2 up = orientation * Vector2.up * size.y / 2f;
 
         var topLeft = point + up - right;
         var topRight = point + up + right;
@@ -100,7 +163,7 @@ public class Tile : MonoBehaviour
 
 
         Collider2D[] collider = Physics2D.OverlapBoxAll(
-            point, 
+            point,
             size,
             0.0f
         );
