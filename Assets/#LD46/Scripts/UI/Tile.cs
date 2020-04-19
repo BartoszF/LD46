@@ -63,12 +63,41 @@ public class Tile : MonoBehaviour
         Vector3 localPos = transform.localPosition;
         localPos.z = buildable.prefab.transform.position.z;    
 
-        SpriteRenderer prefabRenderer = buildable.prefab.GetComponentInChildren<SpriteRenderer>();
+        BoxCollider2D prefabCollider = buildable.prefab.GetComponentInChildren<BoxCollider2D>();
 
-//TODO: Change this. Create collider from prefab on current location and see if it collides with anything
+        Debug.DrawLine(
+            new Vector2(transform.position.x - prefabCollider.size.x/2, transform.position.y - prefabCollider.size.y/2), 
+            new Vector2(transform.position.x + prefabCollider.size.x/2, transform.position.y + prefabCollider.size.y/2)
+        );
 
-        Vector2 collisionCheckSize = (Vector2) prefabRenderer.size;
-        Collider2D[] collider = Physics2D.OverlapBoxAll((Vector2) transform.position,collisionCheckSize, 0.0f);
+
+        var point =  new Vector2(transform.position.x + prefabCollider.offset.x, transform.position.y + prefabCollider.offset.y);
+        var size = new Vector2(prefabCollider.size.x, prefabCollider.size.y);
+        var orientation = Quaternion.Euler(0, 0, 0);
+
+#if UNITY_EDITOR
+
+        Vector2 right = orientation * Vector2.right * size.x/2f;
+        Vector2 up = orientation * Vector2.up * size.y/2f;
+
+        var topLeft = point + up - right;
+        var topRight = point + up + right;
+        var bottomRight = point - up + right;
+        var bottomLeft = point - up - right;
+
+        Debug.DrawLine(topLeft, topRight, Color.white, 0.5f);
+        Debug.DrawLine(topRight, bottomRight, Color.white, 0.5f);
+        Debug.DrawLine(bottomRight, bottomLeft, Color.white, 0.5f);
+        Debug.DrawLine(bottomLeft, topLeft, Color.white, 0.5f);
+
+#endif
+
+
+        Collider2D[] collider = Physics2D.OverlapBoxAll(
+            point, 
+            size,
+            0.0f
+        );
 
         return Array.Find(collider, containsBuilding) == null;
     }
