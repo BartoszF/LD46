@@ -22,7 +22,7 @@ public class Machine : MonoBehaviour
     }
 
     // Update is called once per frame
-    protected void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (_timer >= secondsToProduce && _outputBelt != null && !_outputBelt.HasItem())
         {
