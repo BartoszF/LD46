@@ -5,6 +5,7 @@ using UnityEngine;
 public class BeltItem : MonoBehaviour
 {
 
+    public BeltItemAsset itemAsset;
     private Rigidbody2D _rb;
     // Start is called before the first frame update
     protected void Start()

@@ -26,4 +26,14 @@ public class TransportationInput : InputChecker, ITransportationItem
     {
         return item != null;
     }
+
+    public void Block()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Unblock()
+    {
+        throw new System.NotImplementedException();
+    }
 }

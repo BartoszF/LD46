@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Fruits
   m_EditorClassIdentifier: 
   name: Fruits
-  sprite: {fileID: 21300000, guid: 915f4285168afda46ada7c566460d6fa, type: 3}
+  sprite: {fileID: 21300000, guid: d442497c6b348d040b630e402ac2ac38, type: 3}

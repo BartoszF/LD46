@@ -14,6 +14,8 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
     private BeltChecker _outputChecker;
 
     public BeltItem _currentItem;
+
+    private bool _isBlocked = false;
     private bool _arrivedCenter = false;
     // Start is called before the first frame update
     void Start()
@@ -28,13 +30,19 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
     // Update is called once per frame
     void Update()
     {
-        _currentScroll += scrollSpeed * Time.deltaTime;
-        _material.mainTextureOffset = new Vector2(_currentScroll, 0);
 
+#if UNITY_EDITOR
         if (HasItem())
         {
             Debug.DrawLine(transform.position - transform.right / 2, transform.position + transform.right / 2, Color.red);
         }
+
+        if (_nextBelt != null)
+        {
+            Debug.DrawLine(transform.position - transform.right * 1 / 3, transform.position - transform.right * 1 / 3 + transform.up, Color.green);
+            Debug.DrawLine(transform.position + transform.right * 1 / 3, transform.position + transform.right * 1 / 3 + transform.up, Color.green);
+        }
+#endif
     }
 
     void FixedUpdate()
@@ -50,13 +58,13 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
 
             if (!_arrivedCenter)
             {
-                direction = (transform.position - (Vector3)_currentItem.GetRigidbody().position);
+                direction = (transform.position - (Vector3)_currentItem.GetTransform().position);
             }
             else
             {
                 if (_nextBelt != null && (!_nextBelt.HasItem() || _nextBelt.GetCurrentItem() == _currentItem))
                 {
-                    direction = (_nextBelt.GetTransform().position - (Vector3)_currentItem.GetRigidbody().position);
+                    direction = (_nextBelt.GetTransform().position - (Vector3)_currentItem.GetTransform().position);
                 }
             }
 
@@ -107,7 +115,7 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
 
     public bool HasItem()
     {
-        return _items.Count > 0;
+        return _isBlocked || _items.Count > 0;
     }
 
     public BeltItem GetCurrentItem()
@@ -123,5 +131,15 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
     public Transform GetTransform()
     {
         return transform;
+    }
+
+    public void Block()
+    {
+        _isBlocked = true;
+    }
+
+    public void Unblock()
+    {
+        _isBlocked = false;
     }
 }

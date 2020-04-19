@@ -22,7 +22,8 @@ public class BeltItemAsset : ScriptableObject
         Rigidbody2D rb = go.AddComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Kinematic;
 
-        go.AddComponent<BeltItem>();
+        BeltItem item = go.AddComponent<BeltItem>();
+        item.itemAsset = this;
 
         return go;
     }

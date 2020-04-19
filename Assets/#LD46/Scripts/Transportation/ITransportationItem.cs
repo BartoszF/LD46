@@ -9,4 +9,8 @@ public interface ITransportationItem
     BeltItem GetCurrentItem();
 
     Transform GetTransform();
+
+    void Block();
+
+    void Unblock();
 }

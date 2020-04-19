@@ -8,13 +8,13 @@ public class Machine : MonoBehaviour
 
     public float secondsToProduce = 2f;
 
-    private Transform _output;
-    private BeltChecker _outputChecker;
-    private ITransportationItem _outputBelt;
-    private float _timer = 0f;
+    protected Transform _output;
+    protected BeltChecker _outputChecker;
+    protected ITransportationItem _outputBelt;
+    protected float _timer = 0f;
 
     // Start is called before the first frame update
-    protected void Start()
+    protected virtual void Start()
     {
         _output = transform.Find("Output");
         _outputChecker = _output.GetComponent<BeltChecker>();
