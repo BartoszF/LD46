@@ -47,7 +47,8 @@ public class Developer : Machine
                 }
             }
 
-            if(_itemsRemaining.All(tuple => tuple.Value == 0)) {
+            if (_itemsRemaining != null && _itemsRemaining.All(tuple => tuple.Value == 0))
+            {
                 _isProducing = true;
                 _timer = 0;
             }
