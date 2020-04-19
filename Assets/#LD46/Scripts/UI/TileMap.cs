@@ -20,7 +20,7 @@ public class TileMap : MonoBehaviour
         {
             for (float j = -height/2; j < height/2; j+=tileSpacing)
             {
-                GameObject tile = Instantiate(tilePrefab, new Vector3(i,j, 2), Quaternion.identity);
+                GameObject tile = Instantiate(tilePrefab, new Vector3(i,j, 10), Quaternion.identity);
                 tile.transform.localScale = new Vector3(tileSpacing, tileSpacing, 0);
             }
         }

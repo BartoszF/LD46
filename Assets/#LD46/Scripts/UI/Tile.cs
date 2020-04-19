@@ -28,7 +28,7 @@ public class Tile : MonoBehaviour
 
     void OnMouseOver() {
         Debug.Log("mouse over");
-        if (ghost == null) {
+        if (ghost == null &&  buildingMode.buildingMode != BuildingModeEnum.None) {
             BuildableEntity buildable = buildableEntities.Find(it => it.buildingMode == buildingMode.buildingMode);
             if (buildable != null && actionMode.selectedAction == SelectedActionEnum.Building && isPossibleToPlace(buildable)) {
                 SpriteRenderer spriteRenderer = buildable.prefab.GetComponentInChildren<SpriteRenderer>();
@@ -51,7 +51,7 @@ public class Tile : MonoBehaviour
         if (buildable != null && actionMode.selectedAction == SelectedActionEnum.Building) {
             if (isPossibleToPlace(buildable) && playerResources.spendMuniIfPossible(buildable.cost)) {
                 GameObject instaniatedGameObject = Instantiate(buildable.prefab, transform.localPosition, Quaternion.identity);
-
+                instaniatedGameObject.transform.position = new Vector3(instaniatedGameObject.transform.position.x, instaniatedGameObject.transform.position.y, buildable.prefab.transform.position.z);
             } else {
                 Debug.Log("Something collides or not enough money, show some error or something");
             }   
