@@ -2304,6 +2304,11 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4735206251095851550, guid: a084f20dcc6d6aa4f9b541edc79b9f28,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6263513380967617882, guid: a084f20dcc6d6aa4f9b541edc79b9f28,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2373,6 +2378,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6323392776784692485, guid: 219964159db1a894e8fa799d1a6d2f12,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6323392776994614689, guid: 219964159db1a894e8fa799d1a6d2f12,
+        type: 3}
+      propertyPath: beltItemToFilter
+      value: 
+      objectReference: {fileID: 11400000, guid: de3434d2e169e854fb0e77b0301bc3b4,
+        type: 2}
     - target: {fileID: 6323392776994614690, guid: 219964159db1a894e8fa799d1a6d2f12,
         type: 3}
       propertyPath: m_LocalPosition.x

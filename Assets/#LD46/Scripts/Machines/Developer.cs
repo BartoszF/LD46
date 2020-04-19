@@ -56,14 +56,12 @@ public class Developer : Machine
         {
             if (_timer >= secondsToProduce && _outputBelt != null && !_outputBelt.HasItem())
             {
-                _outputBelt.Block();
                 _timer = 0;
                 GameObject obj = itemProduced.InstantiateGO();
                 obj.transform.position = _output.position;
 
                 _isProducing = false;
                 PopulateRemaining();
-                _outputBelt.Unblock();
             }
 
             _timer += Time.fixedDeltaTime;
