@@ -6,8 +6,6 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
 {
     public float speed = 15f;
     public float scrollSpeed = 1f;
-
-    private Material _material;
     private float _currentScroll = 0f;
     private List<BeltItem> _items;
     private ITransportationItem _nextBelt;
@@ -22,8 +20,6 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
         _outputChecker = transform.Find("Output").GetComponent<BeltChecker>();
         _outputChecker.OnChange += this.OnBeltChange;
         _items = new List<BeltItem>();
-        Transform child = transform.GetChild(0);
-        _material = child.GetComponent<SpriteRenderer>().material;
     }
 
     // Update is called once per frame
