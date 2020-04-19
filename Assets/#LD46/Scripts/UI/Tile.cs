@@ -33,6 +33,7 @@ public class Tile : MonoBehaviour
             if (buildable != null && actionMode.selectedAction == SelectedActionEnum.Building && isPossibleToPlace(buildable)) {
                 SpriteRenderer spriteRenderer = buildable.prefab.GetComponentInChildren<SpriteRenderer>();
                 ghost = Instantiate(spriteRenderer.gameObject, transform.localPosition, Quaternion.identity);
+                ghost.transform.localScale = buildable.prefab.transform.localScale;
                 SpriteRenderer dupa = ghost.GetComponent<SpriteRenderer>();
                 dupa.color = new Color(60, 255, 30, 0.5f);
             }
@@ -50,7 +51,7 @@ public class Tile : MonoBehaviour
         BuildableEntity buildable = buildableEntities.Find(it => it.buildingMode == buildingMode.buildingMode);
         if (buildable != null && actionMode.selectedAction == SelectedActionEnum.Building) {
             if (isPossibleToPlace(buildable) && playerResources.spendMuniIfPossible(buildable.cost)) {
-                GameObject instaniatedGameObject = Instantiate(buildable.prefab, transform.localPosition, Quaternion.identity);
+                GameObject instaniatedGameObject = Instantiate(buildable.prefab, transform.position, Quaternion.identity);
                 instaniatedGameObject.transform.position = new Vector3(instaniatedGameObject.transform.position.x, instaniatedGameObject.transform.position.y, buildable.prefab.transform.position.z);
             } else {
                 Debug.Log("Something collides or not enough money, show some error or something");
@@ -64,15 +65,10 @@ public class Tile : MonoBehaviour
         localPos.z = buildable.prefab.transform.position.z;    
 
         BoxCollider2D prefabCollider = buildable.prefab.GetComponentInChildren<BoxCollider2D>();
+        var scale = buildable.prefab.transform.localScale;
 
-        Debug.DrawLine(
-            new Vector2(transform.position.x - prefabCollider.size.x/2, transform.position.y - prefabCollider.size.y/2), 
-            new Vector2(transform.position.x + prefabCollider.size.x/2, transform.position.y + prefabCollider.size.y/2)
-        );
-
-
-        var point =  new Vector2(transform.position.x + prefabCollider.offset.x, transform.position.y + prefabCollider.offset.y);
-        var size = new Vector2(prefabCollider.size.x, prefabCollider.size.y);
+        var point = new Vector2(transform.position.x + prefabCollider.offset.x, transform.position.y + prefabCollider.offset.y);
+        var size = new Vector2(prefabCollider.size.x, prefabCollider.size.y) * scale;
         var orientation = Quaternion.Euler(0, 0, 0);
 
 #if UNITY_EDITOR

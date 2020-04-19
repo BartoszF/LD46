@@ -12,7 +12,7 @@ public class Demolishable : MonoBehaviour
 
     void OnMouseDown () {
          if (selectedAction.selectedAction == SelectedActionEnum.Demolition) {
-             Destroy(gameObject);
+             Destroy(gameObject.transform.parent.gameObject);
          }
     }
 }
