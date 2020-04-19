@@ -36,7 +36,6 @@
               <e p="Machine.cs" t="Include" />
               <e p="ServerRoom.cs" t="Include" />
             </e>
-            <e p="OrientationManager.cs" t="Include" />
             <e p="Transportation" t="Include">
               <e p="BeltChecker.cs" t="Include" />
               <e p="ConveyorBelt.cs" t="Include" />

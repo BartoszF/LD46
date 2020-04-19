@@ -13,7 +13,7 @@ ScriptedImporter:
   meshMode: 0
   legacyVoxImport: 0
   importMode: 1
-  importScale: {x: 0.1, y: 0.1, z: 0.1}
+  importScale: {x: 1.5, y: 1.5, z: 1.5}
   importOffset: {x: 0, y: 0, z: 0}
   combineFaces: 1
   ignoreCavity: 1
