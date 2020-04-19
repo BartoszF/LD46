@@ -15,7 +15,6 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
 
     public BeltItem _currentItem;
 
-    private bool _isBlocked = false;
     private bool _arrivedCenter = false;
     // Start is called before the first frame update
     void Start()
@@ -115,7 +114,7 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
 
     public bool HasItem()
     {
-        return _isBlocked || _items.Count > 0;
+        return _items.Count > 0;
     }
 
     public BeltItem GetCurrentItem()
@@ -131,15 +130,5 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
     public Transform GetTransform()
     {
         return transform;
-    }
-
-    public void Block()
-    {
-        _isBlocked = true;
-    }
-
-    public void Unblock()
-    {
-        _isBlocked = false;
     }
 }
