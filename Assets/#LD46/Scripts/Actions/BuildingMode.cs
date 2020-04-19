@@ -30,5 +30,6 @@ public enum BuildingModeEnum {
     Fruits,
     Merger,
     Filter,
-    ServerRoom
+    ServerRoom,
+    Programmer
 }
