@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System;
 
 public class Tile : MonoBehaviour
@@ -33,6 +34,9 @@ public class Tile : MonoBehaviour
     }
 
     void OnMouseOver() {
+        if(EventSystem.current.IsPointerOverGameObject()) {
+            return;
+        }
         if (ghost == null &&  buildingMode.buildingMode != BuildingModeEnum.None) {
             BuildableEntity buildable = buildableEntities.Find(it => it.buildingMode == buildingMode.buildingMode);
             if (buildable != null && actionMode.selectedAction == SelectedActionEnum.Building && isPossibleToPlace(buildable)) {
@@ -52,6 +56,9 @@ public class Tile : MonoBehaviour
     }
 
     void OnMouseDown () {
+        if(EventSystem.current.IsPointerOverGameObject()) {
+            return;
+        }
         BuildableEntity buildable = buildableEntities.Find(it => it.buildingMode == buildingMode.buildingMode);
         if (buildable != null && actionMode.selectedAction == SelectedActionEnum.Building) {
             if (isPossibleToPlace(buildable) && playerResources.spendMuniIfPossible(buildable.cost)) {
