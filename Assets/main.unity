@@ -218,7 +218,7 @@ PrefabInstance:
     - target: {fileID: 429310869402740236, guid: cd0fe02a5a35ae44796d9643fc885cc4,
         type: 3}
       propertyPath: tileSpacing
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 429310869402740237, guid: cd0fe02a5a35ae44796d9643fc885cc4,
         type: 3}

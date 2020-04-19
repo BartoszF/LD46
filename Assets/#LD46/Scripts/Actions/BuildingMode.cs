@@ -29,5 +29,6 @@ public enum BuildingModeEnum {
     Coffee,
     Fruits,
     Merger,
-    Filter
+    Filter,
+    ServerRoom
 }

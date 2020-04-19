@@ -68,7 +68,7 @@ public class Tile : MonoBehaviour
         Vector2 collisionCheckSize = (Vector2) prefabRenderer.size;
         collisionCheckSize.x -= 0.1f;
         collisionCheckSize.y -= 0.1f;
-        Collider2D[] collider = Physics2D.OverlapBoxAll((Vector2) transform.localPosition,collisionCheckSize, 0.0f);
+        Collider2D[] collider = Physics2D.OverlapBoxAll((Vector2) transform.position,collisionCheckSize, 0.0f);
 
         return Array.Find(collider, containsBuilding) == null;
     }

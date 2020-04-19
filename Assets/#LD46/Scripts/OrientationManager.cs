@@ -8,16 +8,10 @@ public class OrientationManager : MonoBehaviour
 
     public OrientationEnum currentOrientation;
 
-    [Serializable]
-    public struct OrientationToSprite {
-        public OrientationEnum orientation;
-        public Sprite spriteToRender;
 
-        public RuntimeAnimatorController controller;
-    }
+    public BuildableEntity buildableEntity;
 
-    public List<OrientationToSprite> orientationToSpritesArr = new List<OrientationToSprite>(4);
-    private Dictionary<OrientationEnum, OrientationToSprite> orientationToSprites = new Dictionary<OrientationEnum, OrientationToSprite>();
+    private Dictionary<OrientationEnum, OrientationData> orientationToSprites = new Dictionary<OrientationEnum, OrientationData>();
 
     private SpriteRenderer spriteRenderer;
     private Animator animator;
@@ -25,7 +19,7 @@ public class OrientationManager : MonoBehaviour
     // Start is called before the first frame Ndate
     void Start()
     {
-        foreach (var item in orientationToSpritesArr)
+        foreach (var item in buildableEntity.orientationDataArr)
         {
             orientationToSprites.Add(item.orientation, item);
         }
@@ -62,7 +56,9 @@ public class OrientationManager : MonoBehaviour
 
     void setOrientation(OrientationEnum orientation) {
         spriteRenderer.sprite = orientationToSprites[orientation].spriteToRender;
-        animator.runtimeAnimatorController = orientationToSprites[orientation].controller;
+        if (animator != null) {
+            animator.runtimeAnimatorController = orientationToSprites[orientation].controller;
+        }
         currentOrientation = orientation;
     }
 }

@@ -116,23 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentOrientation: 0
-  orientationToSpritesArr:
-  - orientation: 0
-    spriteToRender: {fileID: -2398999282464610374, guid: d91b024774bdc9341a5acd3ed2c15a45,
-      type: 3}
-    controller: {fileID: 9100000, guid: ceb95031080bc044e99b7001a79ece4e, type: 2}
-  - orientation: 3
-    spriteToRender: {fileID: -3510219686649992215, guid: 97c86e3a7e110cd46b540038823d1050,
-      type: 3}
-    controller: {fileID: 9100000, guid: 82eb066bd728c824fb17112ddfcccc99, type: 2}
-  - orientation: 1
-    spriteToRender: {fileID: -1467877621237358913, guid: a26d72b2ce011114f8987d11d3466af5,
-      type: 3}
-    controller: {fileID: 9100000, guid: 5da18375c910bd64ba392223058faccd, type: 2}
-  - orientation: 2
-    spriteToRender: {fileID: -3765122757252021322, guid: 30607622ed3740f42bf52f3d2b8b2355,
-      type: 3}
-    controller: {fileID: 9100000, guid: 8618b516821807f45a5d5606061cef17, type: 2}
+  buildableEntity: {fileID: 11400000, guid: 6a58c612eefb6004fb5e408fd102bb13, type: 2}
 --- !u!1 &3962668703244812252
 GameObject:
   m_ObjectHideFlags: 0

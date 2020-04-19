@@ -15,3 +15,4 @@ MonoBehaviour:
   cost: 0
   prefab: {fileID: 0}
   buildingMode: 0
+  orientationDataArr: []
