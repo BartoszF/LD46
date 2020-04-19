@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8935864125742617651}
   - component: {fileID: 2496337040603122202}
   - component: {fileID: 2394564209333822212}
+  - component: {fileID: 1655204265097146913}
   m_Layer: 8
   m_Name: holder
   m_TagString: Untagged
@@ -72,7 +73,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.012114197, y: -0.31651282}
+  m_Offset: {x: -0.012114197, y: -0.27562755}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -83,8 +84,22 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9757716, y: 0.9635329}
+  m_Size: {x: 0.9757716, y: 1.0453035}
   m_EdgeRadius: 0
+--- !u!114 &1655204265097146913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3323801294117391790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5cb8e73c502fb04eb89feff67075576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemProduced: {fileID: 11400000, guid: 59a74c7efa8e4674d88ccebbc5f88d97, type: 2}
+  secondsToProduce: 2
 --- !u!1 &4670069317248552485
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,7 +205,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4670069318824985358}
-  - component: {fileID: 4670069318824985359}
   m_Layer: 8
   m_Name: CoffeMachine
   m_TagString: Untagged
@@ -214,20 +228,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4670069318824985359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4670069318824985457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5cb8e73c502fb04eb89feff67075576, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemProduced: {fileID: 11400000, guid: 59a74c7efa8e4674d88ccebbc5f88d97, type: 2}
-  secondsToProduce: 2
 --- !u!1001 &7676077751737800618
 PrefabInstance:
   m_ObjectHideFlags: 0

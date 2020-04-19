@@ -64,7 +64,7 @@ public class Tile : MonoBehaviour
         Vector3 localPos = transform.localPosition;
         localPos.z = buildable.prefab.transform.position.z;    
 
-        BoxCollider2D prefabCollider = buildable.prefab.GetComponentInChildren<BoxCollider2D>();
+        BoxCollider2D prefabCollider = buildable.prefab.transform.Find("holder").GetComponent<BoxCollider2D>();
         var scale = buildable.prefab.transform.localScale;
 
         var point = new Vector2(transform.position.x + prefabCollider.offset.x, transform.position.y + prefabCollider.offset.y);
