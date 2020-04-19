@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4670069317248552482}
   - component: {fileID: 4670069317248552483}
+  - component: {fileID: 6893650998731068425}
   m_Layer: 8
   m_Name: coffeeMachineGFX
   m_TagString: Untagged
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 30d68aa2d159b4948828b7e80f5f3b27, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5f85368c7b622b840ba227e561a8996e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -81,6 +82,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6893650998731068425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4670069317248552485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b951cd2536da41742b70b6589318fd65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentOrientation: 0
+  orientationToSpritesArr:
+  - orientation: 0
+    spriteToRender: {fileID: 21300000, guid: 5f85368c7b622b840ba227e561a8996e, type: 3}
+    controller: {fileID: 0}
+  - orientation: 3
+    spriteToRender: {fileID: 21300000, guid: 78cd113eb4de2764a97b2710c5622c75, type: 3}
+    controller: {fileID: 0}
+  - orientation: 1
+    spriteToRender: {fileID: 21300000, guid: f559f4b1498000547a6459a8e8279bf0, type: 3}
+    controller: {fileID: 0}
+  - orientation: 2
+    spriteToRender: {fileID: 21300000, guid: a3befb1c28e169f4ebc4105b9782a513, type: 3}
+    controller: {fileID: 0}
 --- !u!1 &4670069318824985457
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e8c47a58c75cc4a8ce5b15f98a1ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orientationManager: {fileID: 0}
 --- !u!61 &-2963386495881199894
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -156,7 +184,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0044140816, y: -0.00000014901161}
+  m_Offset: {x: -0.008878648, y: -0.3234533}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -167,7 +195,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9799337, y: 1.9711058}
+  m_Size: {x: 0.8722172, y: 0.84566474}
   m_EdgeRadius: 0
 --- !u!114 &3533048912579724990
 MonoBehaviour:
@@ -196,12 +224,12 @@ PrefabInstance:
     - target: {fileID: 3047110962329217673, guid: ff2d4adea68bfc54fa5fb65bc6296581,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: -0.93
       objectReference: {fileID: 0}
     - target: {fileID: 3047110962329217673, guid: ff2d4adea68bfc54fa5fb65bc6296581,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 3047110962329217673, guid: ff2d4adea68bfc54fa5fb65bc6296581,
         type: 3}
