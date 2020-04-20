@@ -33,8 +33,10 @@ ScriptedImporter:
   createContactChunkFaces: 0
   materialMode: 0
   materials:
-  - {instanceID: 0}
+  - {fileID: -156486658544998735, guid: 20733ce08b47df0458c7f386aae7d386, type: 3}
   materialNames:
   - mat0
-  remappedMaterials: []
+  remappedMaterials:
+  - name: mat0
+    material: {fileID: 2100000, guid: 18e0b9df2148d9f44af8c5c22c2c4075, type: 2}
   export: 0
