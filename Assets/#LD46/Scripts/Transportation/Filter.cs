@@ -20,13 +20,13 @@ public class Filter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _outputLeftChecker = transform.Find("Output Left").GetComponent<BeltChecker>();
+        _outputLeftChecker = transform.Find("holder").Find("Output Left").GetComponent<BeltChecker>();
         _outputLeftChecker.OnChange += this.OnOutputLeftChanged;
 
-        _outputRightChecker = transform.Find("Output Right").GetComponent<BeltChecker>();
+        _outputRightChecker = transform.Find("holder").Find("Output Right").GetComponent<BeltChecker>();
         _outputRightChecker.OnChange += this.OnOutputRightChanged;
 
-        _InputChecker = transform.Find("Input").GetComponent<InputChecker>();
+        _InputChecker = transform.Find("holder").Find("Input").GetComponent<InputChecker>();
         _InputChecker.OnChange += this.OnInput;
 
         //TODO: we want to change it at runtime through gui
