@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class MenuActions : MonoBehaviour
 {
     public void exitGame() {
-        Application.Quit();
+        SceneManager.LoadScene("Title");
     }
 
     public void reloadGame() {
