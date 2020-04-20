@@ -24,6 +24,10 @@ public class PlayerResources : MonoBehaviour
         if (spending <= muni)
         {
             muni -= spending;
+            var timeToMoney = new RevenuePerMinute.TimeToMoney();
+            timeToMoney.time = TimePlayed.INSTANCE.timeSinceStartInSeconds;
+            timeToMoney.money = spending * -1;
+            RevenuePerMinute.INSTANCE.timeToMoney.Add(timeToMoney);
             moneyText.text = muni.ToString();
             return true;
         }
@@ -33,6 +37,10 @@ public class PlayerResources : MonoBehaviour
     public void addMuni(int muniToAdd)
     {
         muni += muniToAdd;
+        var timeToMoney = new RevenuePerMinute.TimeToMoney();
+        timeToMoney.time = TimePlayed.INSTANCE.timeSinceStartInSeconds;
+        timeToMoney.money = muniToAdd;
+        RevenuePerMinute.INSTANCE.timeToMoney.Add(timeToMoney);
         moneyText.text = muni.ToString();
     }
 }
