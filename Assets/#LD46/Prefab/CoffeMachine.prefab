@@ -103,6 +103,8 @@ MonoBehaviour:
   itemProduced: {fileID: 11400000, guid: 59a74c7efa8e4674d88ccebbc5f88d97, type: 2}
   secondsToProduce: 2
   _timer: 0
+  RunningEvent: event:/Coffee Machine
+  SuccessEvent: 
 --- !u!1 &4670069318824985457
 GameObject:
   m_ObjectHideFlags: 0

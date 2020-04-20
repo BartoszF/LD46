@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FMOD.Studio;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +18,13 @@ public class Machine : MonoBehaviour, ITransportationItem
 
     protected Salary _salary;
 
+    [FMODUnity.EventRef]
+    public string RunningEvent = "";
+
+    [FMODUnity.EventRef]
+    public string SuccessEvent = "";
+    private EventInstance runningSoundState;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -28,26 +36,44 @@ public class Machine : MonoBehaviour, ITransportationItem
         {
             _salary = maybeSalary.GetComponent<Salary>();
         }
+
+        runningSoundState = FMODUnity.RuntimeManager.CreateInstance(RunningEvent);
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(runningSoundState, GetComponent<Transform>(), GetComponent<Rigidbody>());
     }
 
     // Update is called once per frame
     protected void FixedUpdate()
     {
         if (_salary.isNotPaidFor()) return;
+        else if (_timer <= 0 && RunningEvent != "")
+        {
+
+            runningSoundState.start();
+        }
 
         if (_timer >= secondsToProduce && _outputBelt != null && !_outputBelt.HasItem())
         {
             _timer = 0;
+
+            if (RunningEvent != "")
+                runningSoundState.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+
+            if (SuccessEvent != "")
+                FMODUnity.RuntimeManager.PlayOneShot(SuccessEvent, transform.position);
+
             GameObject obj = itemProduced.InstantiateGO();
             _outputBelt.Reserve(obj.GetComponent<BeltItem>());
             obj.transform.position = _output.position;
+            return;
         }
 
         _timer += Time.fixedDeltaTime;
     }
 
-    protected void LateUpdate() {
-        if (productionSlider) {
+    protected void LateUpdate()
+    {
+        if (productionSlider)
+        {
             UpdateSlider();
         }
     }
@@ -77,7 +103,8 @@ public class Machine : MonoBehaviour, ITransportationItem
 
     }
 
-    public void UpdateSlider() {
+    public void UpdateSlider()
+    {
         productionSlider.value = Math.Min(1.0f, _timer / secondsToProduce);
     }
 }

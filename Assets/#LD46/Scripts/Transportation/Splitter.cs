@@ -22,6 +22,9 @@ public class Splitter : MonoBehaviour
 
     private BeltItem _currentItem;
 
+    [FMODUnity.EventRef]
+    public string ClankEvent = "";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +58,8 @@ public class Splitter : MonoBehaviour
 
     void ToggleOutput()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
+
         if (_currentOutput == CurrentOutput.LEFT)
         {
             _currentOutput = CurrentOutput.RIGHT;

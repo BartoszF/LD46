@@ -505,6 +505,7 @@ MonoBehaviour:
   timeoutSeconds: 2
   leftLight: {fileID: 3689553079883622138}
   rightLight: {fileID: 8857204004121948887}
+  ClankEvent: event:/Metal clank
 --- !u!114 &4216800035504534186
 MonoBehaviour:
   m_ObjectHideFlags: 0

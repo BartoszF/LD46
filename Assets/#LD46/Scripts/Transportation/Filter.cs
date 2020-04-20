@@ -17,6 +17,9 @@ public class Filter : MonoBehaviour
     private BeltItem _InputItem;
     private InputChecker _InputChecker;
 
+    [FMODUnity.EventRef]
+    public string ClankEvent = "";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +48,7 @@ public class Filter : MonoBehaviour
                 if (_outputRightBelt != null && !_outputRightBelt.HasItem())
                 {
                     _outputRightBelt.Reserve(_currentItem);
+                    FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
                     _currentItem.GetTransform().position = _outputRightBelt.GetTransform().position;
                     _currentItem = null;
                 }
@@ -54,6 +58,7 @@ public class Filter : MonoBehaviour
                 if (_outputLeftBelt != null && !_outputLeftBelt.HasItem())
                 {
                     _outputLeftBelt.Reserve(_currentItem);
+                    FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
                     _currentItem.GetTransform().position = _outputLeftBelt.GetTransform().position;
                     _currentItem = null;
                 }
