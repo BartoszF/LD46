@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Coffee
   sprite: {fileID: 21300000, guid: 50f8644929d6c6946aa731dd52227f43, type: 3}
+  prefab: {fileID: 5251253915141945227, guid: c5ee600983c3b894bad9f559e80c3b96, type: 3}

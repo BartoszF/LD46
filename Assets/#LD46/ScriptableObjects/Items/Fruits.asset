@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Fruits
   sprite: {fileID: 21300000, guid: d442497c6b348d040b630e402ac2ac38, type: 3}
+  prefab: {fileID: 7277408873414683712, guid: da0eac509e9ba5943a28dbbd6d3cd986, type: 3}
