@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BuildingsPanel : MonoBehaviour
 {
     public GameObject buildingPanelPrefab;
+    public RectTransform infoPanel;
     public List<BuildableEntity> buildings;
     void Start()
     {
@@ -16,7 +17,10 @@ public class BuildingsPanel : MonoBehaviour
                 GameObject panel = Instantiate(buildingPanelPrefab, transform.position, Quaternion.identity);
                 panel.name = item.name;
 
-                panel.GetComponent<BuildingButton>().SetItem(item);
+                BuildingButton buildingButton = panel.GetComponent<BuildingButton>();
+                
+                buildingButton.SetInfoPanel(infoPanel);
+                buildingButton.SetItem(item);
 
                 Image sprite = panel.transform.Find("Sprite").GetComponent<Image>();
                 sprite.overrideSprite = item.sprite;
