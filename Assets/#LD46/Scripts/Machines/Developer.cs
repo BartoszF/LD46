@@ -114,6 +114,7 @@ public class Developer : Machine
                     noPlaceForCodeAlert.SetActive(false);
                     _timer = 0;
                     GameObject obj = itemProduced.InstantiateGO();
+                    _outputBelt.Reserve(obj.GetComponent<BeltItem>());
                     obj.transform.position = _output.position;
 
                     _isProducing = false;

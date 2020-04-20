@@ -53,6 +53,7 @@ public class Filter : MonoBehaviour
             {
                 if (_outputLeftBelt != null && !_outputLeftBelt.HasItem())
                 {
+                    _outputLeftBelt.Reserve(_currentItem);
                     _currentItem.GetTransform().position = _outputLeftBelt.GetTransform().position;
                     _currentItem = null;
                 }

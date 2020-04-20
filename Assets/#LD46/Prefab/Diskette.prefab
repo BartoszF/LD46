@@ -111,7 +111,7 @@ PrefabInstance:
     - target: {fileID: 8410400839104239647, guid: 8ee62a729657f784f8b4cf558aefd3a0,
         type: 3}
       propertyPath: m_Name
-      value: Diskette
+      value: GFX
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 8003678584995450554, guid: 8ee62a729657f784f8b4cf558aefd3a0,
