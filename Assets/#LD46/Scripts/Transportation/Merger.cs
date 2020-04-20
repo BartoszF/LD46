@@ -32,6 +32,9 @@ public class Merger : MonoBehaviour
     private CurrentInput _currentInput;
     private BeltItem _currentItem;
 
+    [FMODUnity.EventRef]
+    public string ClankEvent = "";
+
     void Start()
     {
         _outputChecker = transform.Find("Output").GetComponent<BeltChecker>();
@@ -154,7 +157,8 @@ public class Merger : MonoBehaviour
     //DUNNO, for some reason I cannot bitwise not this enum
     private void ChangeInput()
     {
-        
+        FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
+
         if (_currentInput == CurrentInput.LEFT)
         {
             leftLight.gameObject.SetActive(false);

@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beltItemToFilter: {fileID: 0}
+  ClankEvent: event:/Metal clank
 --- !u!50 &905300189161800091
 Rigidbody2D:
   serializedVersion: 4
