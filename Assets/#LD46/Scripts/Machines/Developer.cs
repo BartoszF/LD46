@@ -74,7 +74,7 @@ public class Developer : Machine
 
             if (_itemsRemaining != null && _itemsRemaining.Any(tuple => tuple.Value > 0))
             {
-                if (_itemsRemaining.All(tuple => tuple.Value > 0))
+                if (_itemsRemaining.All(tuple => tuple.Value > 1))
                 {
                     noCoffeeAndFruitAlert.SetActive(true);
                 }
