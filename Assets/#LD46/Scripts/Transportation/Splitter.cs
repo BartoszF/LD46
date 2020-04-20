@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Splitter : MonoBehaviour
+public class Splitter : MonoBehaviour, ITransportationItem
 {
     enum CurrentOutput
     {
@@ -25,6 +25,8 @@ public class Splitter : MonoBehaviour
     [FMODUnity.EventRef]
     public string ClankEvent = "";
 
+    public Action<ITransportationItem> OnDestroyAction { get; private set; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,24 +44,51 @@ public class Splitter : MonoBehaviour
     {
         if (_currentItem)
         {
-            if (_currentOutput == CurrentOutput.LEFT)
+            if (_currentOutput == CurrentOutput.LEFT && _leftOutput != null && _leftOutput.GetTransform())
             {
+                FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
                 _currentItem.transform.position = _leftOutput.GetTransform().position;
             }
-            else
+            else if (_rightOutput != null && _rightOutput.GetTransform())
             {
+                FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
                 _currentItem.transform.position = _rightOutput.GetTransform().position;
-
             }
 
             ToggleOutput();
         }
     }
 
+    void OnDestroy()
+    {
+
+        if (OnDestroyAction != null)
+        {
+            OnDestroyAction(this);
+        }
+        if (_leftOutputChecker)
+        {
+            _leftOutputChecker.OnChange -= OnLeftOutputChanged;
+        }
+
+        if (_rightOutputChecker)
+        {
+            _rightOutputChecker.OnChange -= OnRightOutputChanged;
+        }
+
+        if (_inputBeltChecker)
+        {
+            _inputBeltChecker.OnChange -= OnInputChange;
+        }
+
+        if (_currentItem)
+        {
+            Destroy(_currentItem.gameObject);
+        }
+    }
+
     void ToggleOutput()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
-
         if (_currentOutput == CurrentOutput.LEFT)
         {
             _currentOutput = CurrentOutput.RIGHT;
@@ -73,15 +102,53 @@ public class Splitter : MonoBehaviour
     private void OnRightOutputChanged(ITransportationItem obj)
     {
         _rightOutput = obj;
+        _rightOutput.OnDestroy(OnRightOutputDestroyed);
+    }
+
+    void OnRightOutputDestroyed(ITransportationItem item)
+    {
+        _rightOutput = null;
     }
 
     private void OnLeftOutputChanged(ITransportationItem obj)
     {
         _leftOutput = obj;
+        _leftOutput.OnDestroy(OnLeftOutputDestroyed);
+
+    }
+
+    void OnLeftOutputDestroyed(ITransportationItem item)
+    {
+        _leftOutput = null;
     }
 
     private void OnInputChange(BeltItem obj)
     {
         _currentItem = obj;
+    }
+
+    public bool HasItem()
+    {
+        throw new NotImplementedException();
+    }
+
+    public BeltItem GetCurrentItem()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Transform GetTransform()
+    {
+        return transform;
+    }
+
+    public void Reserve(BeltItem body)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void OnDestroy(Action<ITransportationItem> onDestroy)
+    {
+        OnDestroyAction += onDestroy;
     }
 }

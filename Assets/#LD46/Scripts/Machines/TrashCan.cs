@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,22 +11,37 @@ public class TrashCan : MonoBehaviour, ITransportationItem
     [FMODUnity.EventRef]
     public string ThrashEvent = "";
 
+    public Action<ITransportationItem> OnDestroyAction;
+
     void Start()
     {
         _inputChecker = transform.Find("Input").GetComponent<InputChecker>();
-        _inputChecker.OnChange += OnItemChanged;   
+        _inputChecker.OnChange += OnItemChanged;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(_currentItemOnBelt != null) {
+        if (_currentItemOnBelt != null)
+        {
             FMODUnity.RuntimeManager.PlayOneShot(ThrashEvent, transform.position);
             Destroy(_currentItemOnBelt.gameObject);
         }
     }
 
-    public void OnItemChanged(BeltItem item) {
+    void OnDestroy()
+    {
+        if (OnDestroyAction != null)
+            OnDestroyAction(this);
+
+        if (_inputChecker)
+        {
+            _inputChecker.OnChange -= OnItemChanged;
+        }
+    }
+
+    public void OnItemChanged(BeltItem item)
+    {
         _currentItemOnBelt = item;
     }
 
@@ -41,10 +57,15 @@ public class TrashCan : MonoBehaviour, ITransportationItem
 
     public Transform GetTransform()
     {
-        return transform;
+        return transform == null ? null : transform;
     }
 
     public void Reserve(BeltItem body)
     {
+    }
+
+    public void OnDestroy(Action<ITransportationItem> onDestroy)
+    {
+        OnDestroyAction += onDestroy;
     }
 }

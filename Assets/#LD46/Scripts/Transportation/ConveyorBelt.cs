@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +16,8 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
 
     private bool _arrivedCenter = false;
     private BeltItem _reservedItem;
+
+    public event Action<ITransportationItem> OnDestroyAction;
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +64,7 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
             }
             else
             {
-                if (_nextBelt != null && (!_nextBelt.HasItem() || _nextBelt.GetCurrentItem() == _currentItem))
+                if (_nextBelt != null && _nextBelt.GetTransform() != null && (!_nextBelt.HasItem() || _nextBelt.GetCurrentItem() == _currentItem))
                 {
                     _nextBelt.Reserve(_currentItem);
                     direction = (_nextBelt.GetTransform().position - (Vector3)_currentItem.GetTransform().position);
@@ -104,6 +107,14 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
 
     void OnDestroy()
     {
+        if (OnDestroyAction != null)
+            OnDestroyAction(this);
+
+        if (_outputChecker)
+        {
+            _outputChecker.OnChange -= OnBeltChange;
+        }
+
         if (_currentItem)
         {
             Destroy(_currentItem.gameObject);
@@ -128,20 +139,37 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
     public void OnBeltChange(ITransportationItem belt)
     {
         _nextBelt = belt;
-        if(_nextBelt == null) {
-           _animator.enabled = false;
-        } else {
+        if (_nextBelt == null)
+        {
+            _animator.enabled = false;
+        }
+        else
+        {
+            _nextBelt.OnDestroy(OnNextBeltDestroyed);
             _animator.enabled = true;
+        }
+    }
+
+    void OnNextBeltDestroyed(ITransportationItem belt)
+    {
+        if (_nextBelt == belt)
+        {
+            _nextBelt = null;
         }
     }
 
     public Transform GetTransform()
     {
-        return transform;
+        return transform == null ? null : transform;
     }
 
     public void Reserve(BeltItem item)
     {
         _currentItem = item;
+    }
+
+    public void OnDestroy(Action<ITransportationItem> onDestroy)
+    {
+        OnDestroyAction += onDestroy;
     }
 }

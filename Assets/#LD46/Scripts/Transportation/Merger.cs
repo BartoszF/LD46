@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Merger : MonoBehaviour
+public class Merger : MonoBehaviour, ITransportationItem
 {
 
     enum CurrentInput
@@ -34,6 +34,8 @@ public class Merger : MonoBehaviour
 
     [FMODUnity.EventRef]
     public string ClankEvent = "";
+
+    public Action<ITransportationItem> OnDestroyAction { get; private set; }
 
     void Start()
     {
@@ -85,7 +87,7 @@ public class Merger : MonoBehaviour
                 stillHas = (_rightInputItem == _currentItem);
             }
 
-            if (stillHas && _outputBelt != null && !_outputBelt.HasItem())
+            if (stillHas && _outputBelt != null && _outputBelt.GetTransform() != null && !_outputBelt.HasItem())
             {
                 _outputBelt.Reserve(_currentItem);
                 _currentItem.GetTransform().position = _outputBelt.GetTransform().position;
@@ -124,9 +126,42 @@ public class Merger : MonoBehaviour
         }
     }
 
+    void OnDestroy()
+    {
+
+        if (OnDestroyAction != null)
+        {
+            OnDestroyAction(this);
+        }
+        if (_leftInputChecker)
+        {
+            _leftInputChecker.OnChange -= OnLeftInput;
+        }
+
+        if (_rightInputChecker)
+        {
+            _rightInputChecker.OnChange -= OnRightInput;
+        }
+
+        if (_outputChecker)
+        {
+            _outputChecker.OnChange -= OnOutputChanged;
+        }
+
+        if (_currentItem)
+        {
+            Destroy(_currentItem.gameObject);
+        }
+    }
+
     public void OnOutputChanged(ITransportationItem belt)
     {
         _outputBelt = belt;
+        _outputBelt.OnDestroy(OnOutputDestroyed);
+    }
+
+    void OnOutputDestroyed(ITransportationItem item) {
+        _outputBelt = null;
     }
 
     private void OnRightInput(BeltItem obj)
@@ -171,5 +206,15 @@ public class Merger : MonoBehaviour
             rightLight.gameObject.SetActive(false);
             _currentInput = CurrentInput.LEFT;
         }
+    }
+
+    public void Reserve(BeltItem body)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void OnDestroy(Action<ITransportationItem> onDestroy)
+    {
+        OnDestroyAction += onDestroy;
     }
 }

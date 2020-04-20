@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Filter : MonoBehaviour
+public class Filter : MonoBehaviour, ITransportationItem
 {
     public BeltItemAsset beltItemToFilter;
     private BeltItem _currentItem;
@@ -19,6 +19,8 @@ public class Filter : MonoBehaviour
 
     [FMODUnity.EventRef]
     public string ClankEvent = "";
+
+    public Action<ITransportationItem> OnDestroyAction;
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +47,7 @@ public class Filter : MonoBehaviour
         {
             if (_currentItem.name == beltItemToFilter.name)
             {
-                if (_outputRightBelt != null && !_outputRightBelt.HasItem())
+                if (_outputRightBelt != null && _outputRightBelt.GetTransform() != null && !_outputRightBelt.HasItem())
                 {
                     _outputRightBelt.Reserve(_currentItem);
                     FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
@@ -55,7 +57,7 @@ public class Filter : MonoBehaviour
             }
             else
             {
-                if (_outputLeftBelt != null && !_outputLeftBelt.HasItem())
+                if (_outputLeftBelt != null && _outputLeftBelt.GetTransform() != null && !_outputLeftBelt.HasItem())
                 {
                     _outputLeftBelt.Reserve(_currentItem);
                     FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
@@ -71,8 +73,34 @@ public class Filter : MonoBehaviour
                 _currentItem = _InputItem;
             }
         }
+    }
 
+    void OnDestroy()
+    {
 
+        if (OnDestroyAction != null)
+        {
+            OnDestroyAction(this);
+        }
+        if (_InputChecker)
+        {
+            _InputChecker.OnChange -= OnInput;
+        }
+
+        if (_outputLeftChecker)
+        {
+            _outputLeftChecker.OnChange -= OnOutputLeftChanged;
+        }
+
+        if (_outputRightChecker)
+        {
+            _outputRightChecker.OnChange -= OnOutputRightChanged;
+        }
+
+        if (_currentItem)
+        {
+            Destroy(_currentItem.gameObject);
+        }
     }
 
     public void SetItemToFilter(BeltItemAsset item)
@@ -103,10 +131,32 @@ public class Filter : MonoBehaviour
     private void OnOutputLeftChanged(ITransportationItem belt)
     {
         _outputLeftBelt = belt;
+        _outputLeftBelt.OnDestroy(OnLeftOutputDestroyed);
+    }
+
+    void OnLeftOutputDestroyed(ITransportationItem item)
+    {
+        _outputLeftBelt = null;
     }
 
     private void OnOutputRightChanged(ITransportationItem belt)
     {
         _outputRightBelt = belt;
+        _outputRightBelt.OnDestroy(OnRightOutputDestroyed);
+    }
+
+    void OnRightOutputDestroyed(ITransportationItem item)
+    {
+        _outputRightBelt = null;
+    }
+
+    public void Reserve(BeltItem body)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void OnDestroy(Action<ITransportationItem> onDestroy)
+    {
+        OnDestroyAction += onDestroy;
     }
 }
