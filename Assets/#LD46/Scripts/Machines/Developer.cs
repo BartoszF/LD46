@@ -60,11 +60,15 @@ public class Developer : Machine
                 }
             }
 
-            if (_itemsRemaining != null && !_itemsRemaining.All(tuple => tuple.Value == 0)) {
-                //TODO: Split coffee and fruit
-                noCoffeeAndFruitAlert.SetActive(true);
-            } else if (_itemsRemaining != null && _itemsRemaining.All(tuple => tuple.Value == 0))
-            {
+            if (_itemsRemaining != null && _itemsRemaining.Any(tuple => tuple.Value > 0)) {
+                if (_itemsRemaining.All(tuple => tuple.Value > 0)) {
+                    noCoffeeAndFruitAlert.SetActive(true);
+                } else if (_itemsRemaining.Any(tuple => tuple.Key.name == "Coffee" && tuple.Value > 0)) {
+                    noCoffeeAlert.SetActive(true);
+                } else if (_itemsRemaining.Any(tuple => tuple.Key.name == "Fruit" && tuple.Value > 0)) {
+                    noFruitAlert.SetActive(true);
+                }
+            } else if (_itemsRemaining != null && _itemsRemaining.All(tuple => tuple.Value == 0)) {
                 noCoffeeAndFruitAlert.SetActive(false);
                 noFruitAlert.SetActive(false);
                 noCoffeeAlert.SetActive(false);
