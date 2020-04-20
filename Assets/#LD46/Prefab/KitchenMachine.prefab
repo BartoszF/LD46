@@ -92,7 +92,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &1655638071662175942
+--- !u!1 &6408167172438867096
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,36 +100,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4348434235438714983}
-  - component: {fileID: 3050148126422868309}
+  - component: {fileID: 6489827406187680665}
+  - component: {fileID: 305245016592905178}
   m_Layer: 0
-  m_Name: OUT
+  m_Name: Out3x3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4348434235438714983
+--- !u!4 &6489827406187680665
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1655638071662175942}
+  m_GameObject: {fileID: 6408167172438867096}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.3, y: -26.4, z: 63.9}
+  m_LocalPosition: {x: 0, y: -27.9, z: -0}
   m_LocalScale: {x: 32, y: 31.999992, z: 31.999992}
   m_Children: []
   m_Father: {fileID: 1956391318286056786}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3050148126422868309
+--- !u!212 &305245016592905178
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1655638071662175942}
+  m_GameObject: {fileID: 6408167172438867096}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -162,12 +162,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 871c8aeccafc6b7448c0db7d63b6bce2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aa636d0d0bf4bd94a9e71047d78e7472, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.8, y: 0.8}
+  m_Size: {x: 5, y: 5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -309,6 +309,8 @@ MonoBehaviour:
   itemProduced: {fileID: 11400000, guid: 40790fa38af0710478ca552b03b520a6, type: 2}
   secondsToProduce: 3
   _timer: 0
+  RunningEvent: 
+  SuccessEvent: 
 --- !u!1001 &309973624953413125
 PrefabInstance:
   m_ObjectHideFlags: 0
