@@ -54,7 +54,7 @@ public class Tile : MonoBehaviour
             ghost.transform.rotation = Quaternion.Euler(0, 0, buildingMode.rotation * 90);
             if (buildingMode.currentState != BuildingState.BUILDING)
             {
-                Destroy(ghost);
+                Destroy(ghost.gameObject);
             }
         }
     }
