@@ -7,9 +7,9 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
     public float speed = 15f;
     public float scrollSpeed = 1f;
     private float _currentScroll = 0f;
-    private List<BeltItem> _items;
     private ITransportationItem _nextBelt;
     private BeltChecker _outputChecker;
+    private Animator _animator;
 
     public BeltItem _currentItem;
 
@@ -21,7 +21,9 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
     {
         _outputChecker = transform.Find("Output").GetComponent<BeltChecker>();
         _outputChecker.OnChange += this.OnBeltChange;
-        _items = new List<BeltItem>();
+
+        _animator = transform.parent.Find("GFX").GetComponent<Animator>();
+        _animator.enabled = false;
     }
 
     // Update is called once per frame
@@ -48,7 +50,7 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
         {
             Vector3 direction = Vector3.zero;
 
-            if (Vector3.Distance(_currentItem.GetTransform().position, transform.position) < 0.02f)
+            if (Vector3.Distance(_currentItem.GetTransform().position, transform.position) < 0.03f)
             {
                 _arrivedCenter = true;
             }
@@ -126,6 +128,11 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
     public void OnBeltChange(ITransportationItem belt)
     {
         _nextBelt = belt;
+        if(_nextBelt == null) {
+           _animator.enabled = false;
+        } else {
+            _animator.enabled = true;
+        }
     }
 
     public Transform GetTransform()
