@@ -27,7 +27,7 @@ public class ServerRoom : MonoBehaviour
 
         if(_currentAmount >= amountToGet) {
            _currentAmount -= amountToGet;
-            //TODO: Add muni
+            PlayerResources.INSTANCE.addMuni(moneyGenerated);
         }
     }
 

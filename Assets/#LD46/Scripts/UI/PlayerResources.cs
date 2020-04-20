@@ -10,17 +10,13 @@ public class PlayerResources : MonoBehaviour
     public TMP_Text moneyText;
     public int muni = 1000;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         INSTANCE = this;
-        moneyText.text = muni.ToString();
     }
-
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-
+        moneyText.text = muni.ToString();
     }
 
     public bool spendMuniIfPossible(int spending)

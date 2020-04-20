@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f133ebed5b66744e9a141e4e92970af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemProduced: {fileID: 11400000, guid: 59a74c7efa8e4674d88ccebbc5f88d97, type: 2}
+  itemProduced: {fileID: 11400000, guid: de3434d2e169e854fb0e77b0301bc3b4, type: 2}
   secondsToProduce: 2
   needsToProduce:
   - itemNeeded: {fileID: 11400000, guid: 59a74c7efa8e4674d88ccebbc5f88d97, type: 2}
