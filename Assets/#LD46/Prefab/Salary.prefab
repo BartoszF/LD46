@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 621145831984480005}
   - component: {fileID: 4135518736907220102}
+  - component: {fileID: 1621637138790498333}
   m_Layer: 8
   m_Name: SalaryAlert
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &621145831984480005
 Transform:
   m_ObjectHideFlags: 0
@@ -81,6 +82,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1621637138790498333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6248254179453066877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5f9b939927c8b44a6494e198f25671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7612763319138058432
 GameObject:
   m_ObjectHideFlags: 0

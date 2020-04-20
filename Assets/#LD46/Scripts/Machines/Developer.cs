@@ -19,6 +19,11 @@ public class Developer : Machine
 
     private bool _isProducing = false;
 
+    public GameObject noFruitAlert;
+    public GameObject noCoffeeAlert;
+    public GameObject noCoffeeAndFruitAlert;
+    public GameObject noPlaceForCodeAlert;
+
 
     protected override void Start()
     {
@@ -34,7 +39,14 @@ public class Developer : Machine
 
     void FixedUpdate()
     {
-        if (_salary.isNotPaidFor()) return;
+        if (_salary.isNotPaidFor()) {
+            //TODO: Hide all alerts, money takes precedence
+            noFruitAlert.SetActive(false);
+            noCoffeeAlert.SetActive(false);
+            noCoffeeAndFruitAlert.SetActive(false);
+            noPlaceForCodeAlert.SetActive(false);
+            return;
+        }
     
         if (!_isProducing)
         {
@@ -48,16 +60,29 @@ public class Developer : Machine
                 }
             }
 
-            if (_itemsRemaining != null && _itemsRemaining.All(tuple => tuple.Value == 0))
-            {
+            if (_itemsRemaining != null && _itemsRemaining.Any(tuple => tuple.Value > 0)) {
+                if (_itemsRemaining.All(tuple => tuple.Value > 0)) {
+                    noCoffeeAndFruitAlert.SetActive(true);
+                } else if (_itemsRemaining.Any(tuple => tuple.Key.name == "Coffee" && tuple.Value > 0)) {
+                    noCoffeeAlert.SetActive(true);
+                } else if (_itemsRemaining.Any(tuple => tuple.Key.name == "Fruit" && tuple.Value > 0)) {
+                    noFruitAlert.SetActive(true);
+                }
+            } else if (_itemsRemaining != null && _itemsRemaining.All(tuple => tuple.Value == 0)) {
+                noCoffeeAndFruitAlert.SetActive(false);
+                noFruitAlert.SetActive(false);
+                noCoffeeAlert.SetActive(false);
                 _isProducing = true;
                 _timer = 0;
             }
         }
         else
         {
-            if (_timer >= secondsToProduce && _outputBelt != null && !_outputBelt.HasItem())
+            if (_timer >= secondsToProduce && _outputBelt != null && _outputBelt.HasItem()) {
+                noPlaceForCodeAlert.SetActive(true);
+            } else if (_timer >= secondsToProduce && _outputBelt != null && !_outputBelt.HasItem())
             {
+                noPlaceForCodeAlert.SetActive(false);
                 _timer = 0;
                 GameObject obj = itemProduced.InstantiateGO();
                 obj.transform.position = _output.position;
