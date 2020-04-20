@@ -34,6 +34,7 @@
               <e p="Developer.cs" t="Include" />
               <e p="KitchenMachine.cs" t="Include" />
               <e p="Machine.cs" t="Include" />
+              <e p="Salary.cs" t="Include" />
               <e p="ServerRoom.cs" t="Include" />
               <e p="TrashCan.cs" t="Include" />
             </e>
@@ -44,14 +45,18 @@
               <e p="InputChecker.cs" t="Include" />
               <e p="ITransportationItem.cs" t="Include" />
               <e p="Merger.cs" t="Include" />
+              <e p="Splitter.cs" t="Include" />
               <e p="TransportationInput.cs" t="Include" />
             </e>
             <e p="UI" t="Include">
               <e p="BuildActionToggler.cs" t="Include" />
+              <e p="BuildingButton.cs" t="Include" />
               <e p="BuildingsPanel.cs" t="Include" />
               <e p="CameraSettings.cs" t="Include" />
               <e p="DemolishButton.cs" t="Include" />
               <e p="HorizontalToggler.cs" t="Include" />
+              <e p="InfoPanel.cs" t="Include" />
+              <e p="LookAtCamera.cs" t="Include" />
               <e p="ModeUpdate.cs" t="Include" />
               <e p="MuniUpdater.cs" t="Include" />
               <e p="PlayerResources.cs" t="Include" />
