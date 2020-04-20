@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6904368909505532554}
-  - component: {fileID: 2242323930985482261}
   m_Layer: 8
   m_Name: KitchenMachine
   m_TagString: Untagged
@@ -25,29 +24,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6904368909505532661}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6904368910022159527}
   - {fileID: 831281206876017128}
   - {fileID: 1956391318286056786}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2242323930985482261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6904368909505532661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e748cb3ef4b1d264a9f2bdb6eec52940, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemProduced: {fileID: 11400000, guid: 40790fa38af0710478ca552b03b520a6, type: 2}
-  secondsToProduce: 3
 --- !u!50 &8956711665810675817
 Rigidbody2D:
   serializedVersion: 4
@@ -107,6 +91,7 @@ GameObject:
   - component: {fileID: 3366574613249153821}
   - component: {fileID: 5709421017316989950}
   - component: {fileID: 4035417500733053992}
+  - component: {fileID: 7223661532604653343}
   m_Layer: 8
   m_Name: holder
   m_TagString: Untagged
@@ -122,11 +107,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7106111946877475218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6904368910022159527}
   m_Father: {fileID: 6904368909505532554}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3366574613249153821
 MonoBehaviour:
@@ -178,6 +164,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.9, y: 2.9}
   m_EdgeRadius: 0
+--- !u!114 &7223661532604653343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7106111946877475218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e748cb3ef4b1d264a9f2bdb6eec52940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemProduced: {fileID: 11400000, guid: 40790fa38af0710478ca552b03b520a6, type: 2}
+  secondsToProduce: 3
 --- !u!1001 &5884005031025557425
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ PrefabInstance:
     - target: {fileID: -3851051642804075805, guid: 20733ce08b47df0458c7f386aae7d386,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -3851051642804075805, guid: 20733ce08b47df0458c7f386aae7d386,
         type: 3}
@@ -274,7 +274,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 6904368909505532554}
+    m_TransformParent: {fileID: 831281206876017128}
     m_Modifications:
     - target: {fileID: 3047110962329217672, guid: ff2d4adea68bfc54fa5fb65bc6296581,
         type: 3}
