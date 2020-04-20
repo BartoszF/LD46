@@ -12,16 +12,6 @@ public class DeveloperNeeds
 }
 public class Developer : Machine
 {
-
-    public float timeToPayday = 5.0f;
-    public int salary = 25;
-
-    private float _salaryTimer = 0.0f;
-
-    private bool _isPaidFor = true;
-
-    public GameObject noSalaryGO;
-
     public List<DeveloperNeeds> needsToProduce;
     private Dictionary<BeltItemAsset, int> _itemsRemaining;
     private InputChecker _inputChecker;
@@ -40,27 +30,11 @@ public class Developer : Machine
 
         _inputChecker = _output.GetComponent<InputChecker>();
         _inputChecker.OnChange += OnBeltItemChange;
-
-
-        noSalaryGO.SetActive(false);
     }
 
     void FixedUpdate()
     {
-        if (_salaryTimer >= timeToPayday) {
-            _salaryTimer = 0;
-
-            if (PlayerResources.INSTANCE.spendMuniIfPossible(salary)) {
-                noSalaryGO.SetActive(false);
-                _isPaidFor = true;
-            } else {
-                noSalaryGO.SetActive(true);
-                _isPaidFor = false;
-            }
-
-        }
-        _salaryTimer += Time.fixedDeltaTime;
-        if (!_isPaidFor) return;
+        if (_salary.isNotPaidFor()) return;
     
         if (!_isProducing)
         {

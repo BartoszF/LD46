@@ -16,5 +16,8 @@ public class BuildableEntity : ScriptableObject
 
     public BeltItemAsset itemToFilter;
 
+    public int salary;
+
+    public float timeToPayday;
 
 }

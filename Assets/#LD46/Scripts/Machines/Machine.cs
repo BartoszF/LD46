@@ -13,17 +13,25 @@ public class Machine : MonoBehaviour
     protected ITransportationItem _outputBelt;
     protected float _timer = 0f;
 
+    protected Salary _salary;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
         _output = transform.Find("Output");
         _outputChecker = _output.GetComponent<BeltChecker>();
         _outputChecker.OnChange += this.OnBeltChange;
+        var maybeSalary = transform.Find("Salary");
+        if (maybeSalary) {
+            _salary = maybeSalary.GetComponent<Salary>();
+        }
     }
 
     // Update is called once per frame
     protected void FixedUpdate()
     {
+        if (_salary.isNotPaidFor()) return;
+
         if (_timer >= secondsToProduce && _outputBelt != null && !_outputBelt.HasItem())
         {
             _timer = 0;

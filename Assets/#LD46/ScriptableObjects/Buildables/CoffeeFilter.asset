@@ -18,3 +18,5 @@ MonoBehaviour:
   prefab: {fileID: 6323392776994614691, guid: 219964159db1a894e8fa799d1a6d2f12, type: 3}
   sprite: {fileID: 21300000, guid: d72e7da398b10564a9bdd191a2cde4ee, type: 3}
   itemToFilter: {fileID: 11400000, guid: 59a74c7efa8e4674d88ccebbc5f88d97, type: 2}
+  salary: 10
+  timeToPayday: 2
