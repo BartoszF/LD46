@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Machine : MonoBehaviour
+public class Machine : MonoBehaviour, ITransportationItem
 {
     public BeltItemAsset itemProduced;
 
@@ -22,7 +22,8 @@ public class Machine : MonoBehaviour
         _outputChecker = _output.GetComponent<BeltChecker>();
         _outputChecker.OnChange += this.OnBeltChange;
         var maybeSalary = transform.Find("Salary");
-        if (maybeSalary) {
+        if (maybeSalary)
+        {
             _salary = maybeSalary.GetComponent<Salary>();
         }
     }
@@ -36,14 +37,35 @@ public class Machine : MonoBehaviour
         {
             _timer = 0;
             GameObject obj = itemProduced.InstantiateGO();
-            obj.transform.position = _output.position;
             _outputBelt.Reserve(obj.GetComponent<BeltItem>());
+            obj.transform.position = _output.position;
         }
 
         _timer += Time.fixedDeltaTime;
     }
 
-    private void OnBeltChange(ITransportationItem belt) {
+    private void OnBeltChange(ITransportationItem belt)
+    {
         this._outputBelt = belt;
+    }
+
+    public bool HasItem()
+    {
+        return false;
+    }
+
+    public BeltItem GetCurrentItem()
+    {
+        return null;
+    }
+
+    public Transform GetTransform()
+    {
+        return transform;
+    }
+
+    public void Reserve(BeltItem body)
+    {
+
     }
 }

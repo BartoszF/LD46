@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrashCan : MonoBehaviour
+public class TrashCan : MonoBehaviour, ITransportationItem
 {
     private InputChecker _inputChecker;
     private BeltItem _currentItemOnBelt;
@@ -23,5 +23,24 @@ public class TrashCan : MonoBehaviour
 
     public void OnItemChanged(BeltItem item) {
         _currentItemOnBelt = item;
+    }
+
+    public bool HasItem()
+    {
+        return false;
+    }
+
+    public BeltItem GetCurrentItem()
+    {
+        return null;
+    }
+
+    public Transform GetTransform()
+    {
+        return transform;
+    }
+
+    public void Reserve(BeltItem body)
+    {
     }
 }
