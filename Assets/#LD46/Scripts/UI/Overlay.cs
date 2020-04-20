@@ -10,8 +10,12 @@ public class Overlay : MonoBehaviour
     void LateUpdate() {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            panel.SetActive(!panel.activeSelf);
+            TogglePanel();
         }
     }
 
+    public void TogglePanel()
+    {
+        panel.SetActive(!panel.activeSelf);
+    }
 }

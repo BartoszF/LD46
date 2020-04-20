@@ -54,6 +54,7 @@
               <e p="BuildingsPanel.cs" t="Include" />
               <e p="CameraSettings.cs" t="Include" />
               <e p="DemolishButton.cs" t="Include" />
+              <e p="HelpButton.cs" t="Include" />
               <e p="HorizontalToggler.cs" t="Include" />
               <e p="InfoPanel.cs" t="Include" />
               <e p="LookAtCamera.cs" t="Include" />
@@ -69,6 +70,7 @@
             </e>
           </e>
         </e>
+        <e p="HelpImage.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="DOTween" t="Include">
             <e p="Modules" t="Include">
