@@ -31,7 +31,7 @@ public class RevenuePerMinute : MonoBehaviour
 
     IEnumerator calculateRPM(){
         while(true) { 
-            timeToMoney.RemoveAll(timeToMoney => timeToMoney.time < (Time.deltaTime - 60.0f));
+            timeToMoney.RemoveAll(timeToMoney => timeToMoney.time < (TimePlayed.INSTANCE.timeSinceStartInSeconds - 60.0f));
             int sumOfMoney = timeToMoney.Sum(timeToMoney => timeToMoney.money);
             rpmText.text = ((float)sumOfMoney).ToString("0.00");
             yield return new WaitForSeconds(1f);
