@@ -127,6 +127,14 @@ public class Developer : Machine
         }
     }
 
+    void OnDestroy()
+    {
+        if(_inputChecker) {
+            _inputChecker.OnChange -= OnBeltItemChange;
+        }
+
+    }
+
     new void UpdateSlider()
     {
         if (_isProducing)

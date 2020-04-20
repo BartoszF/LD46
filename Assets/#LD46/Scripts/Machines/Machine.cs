@@ -25,6 +25,8 @@ public class Machine : MonoBehaviour, ITransportationItem
     public string SuccessEvent = "";
     private EventInstance runningSoundState;
 
+    public Action<ITransportationItem> OnDestroyAction;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -81,6 +83,17 @@ public class Machine : MonoBehaviour, ITransportationItem
         }
     }
 
+    void OnDestroy()
+    {
+        if (OnDestroyAction != null)
+            OnDestroyAction(this);
+            
+        if (_outputChecker)
+        {
+            _outputChecker.OnChange -= OnBeltChange;
+        }
+    }
+
     private void OnBeltChange(ITransportationItem belt)
     {
         this._outputBelt = belt;
@@ -98,7 +111,7 @@ public class Machine : MonoBehaviour, ITransportationItem
 
     public Transform GetTransform()
     {
-        return transform;
+        return transform == null ? null : transform;
     }
 
     public void Reserve(BeltItem body)
@@ -109,5 +122,10 @@ public class Machine : MonoBehaviour, ITransportationItem
     public void UpdateSlider()
     {
         productionSlider.value = Math.Min(1.0f, _timer / secondsToProduce);
+    }
+
+    public void OnDestroy(Action<ITransportationItem> onDestroy)
+    {
+        OnDestroyAction += onDestroy;
     }
 }
