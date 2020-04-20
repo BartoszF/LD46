@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Linq;
 
@@ -12,6 +13,8 @@ public class DeveloperNeeds
 }
 public class Developer : Machine
 {
+ 
+    public Slider productionSlider;
     public List<DeveloperNeeds> needsToProduce;
     private Dictionary<BeltItemAsset, int> _itemsRemaining;
     private InputChecker _inputChecker;
@@ -40,7 +43,6 @@ public class Developer : Machine
     void FixedUpdate()
     {
         if (_salary.isNotPaidFor()) {
-            //TODO: Hide all alerts, money takes precedence
             noFruitAlert.SetActive(false);
             noCoffeeAlert.SetActive(false);
             noCoffeeAndFruitAlert.SetActive(false);
@@ -73,6 +75,7 @@ public class Developer : Machine
                 noFruitAlert.SetActive(false);
                 noCoffeeAlert.SetActive(false);
                 _isProducing = true;
+                productionSlider.gameObject.SetActive(true);
                 _timer = 0;
             }
         }
@@ -88,10 +91,17 @@ public class Developer : Machine
                 obj.transform.position = _output.position;
 
                 _isProducing = false;
+                productionSlider.gameObject.SetActive(false);
                 PopulateRemaining();
             }
 
             _timer += Time.fixedDeltaTime;
+        }
+    }
+
+    void LateUpdate() {
+        if (_isProducing) {
+            productionSlider.value = Math.Min(1.0f, _timer / secondsToProduce);
         }
     }
 

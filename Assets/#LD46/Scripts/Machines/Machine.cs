@@ -11,7 +11,7 @@ public class Machine : MonoBehaviour, ITransportationItem
     protected Transform _output;
     protected BeltChecker _outputChecker;
     protected ITransportationItem _outputBelt;
-    protected float _timer = 0f;
+    public float _timer = 0f;
 
     protected Salary _salary;
 
