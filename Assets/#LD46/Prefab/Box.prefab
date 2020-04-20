@@ -409,6 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5f9b939927c8b44a6494e198f25671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angle: {x: 315, y: -90, z: -270}
 --- !u!1 &4965507229355808728
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5f9b939927c8b44a6494e198f25671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angle: {x: 315, y: -90, z: -270}
 --- !u!114 &3631109772019138945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,6 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5f9b939927c8b44a6494e198f25671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angle: {x: 315, y: -90, z: -90}
 --- !u!1 &6024059769653662168
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,6 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5f9b939927c8b44a6494e198f25671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angle: {x: 315, y: -90, z: -270}
 --- !u!1 &6299034466782813693
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,6 +739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5f9b939927c8b44a6494e198f25671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angle: {x: 315, y: -90, z: -270}
 --- !u!1001 &1862309945387592800
 PrefabInstance:
   m_ObjectHideFlags: 0
