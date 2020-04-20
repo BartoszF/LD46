@@ -37,8 +37,11 @@ public class Machine : MonoBehaviour, ITransportationItem
             _salary = maybeSalary.GetComponent<Salary>();
         }
 
-        runningSoundState = FMODUnity.RuntimeManager.CreateInstance(RunningEvent);
-        FMODUnity.RuntimeManager.AttachInstanceToGameObject(runningSoundState, GetComponent<Transform>(), GetComponent<Rigidbody>());
+        if (RunningEvent != "")
+        {
+            runningSoundState = FMODUnity.RuntimeManager.CreateInstance(RunningEvent);
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(runningSoundState, GetComponent<Transform>(), GetComponent<Rigidbody>());
+        }
     }
 
     // Update is called once per frame

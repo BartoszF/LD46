@@ -132,7 +132,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -164,6 +164,8 @@ MonoBehaviour:
   itemProduced: {fileID: 11400000, guid: de3434d2e169e854fb0e77b0301bc3b4, type: 2}
   secondsToProduce: 2
   _timer: 0
+  RunningEvent: 
+  SuccessEvent: 
   needsToProduce:
   - itemNeeded: {fileID: 11400000, guid: 59a74c7efa8e4674d88ccebbc5f88d97, type: 2}
     amountNeeded: 5
