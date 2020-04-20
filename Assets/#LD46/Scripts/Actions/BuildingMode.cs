@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum BuildingState {
+public enum BuildingState
+{
     NONE = 0,
     BUILDING = 1,
     REMOVING = 2
@@ -55,7 +56,13 @@ public class BuildingMode : MonoBehaviour
         currentEntity = entity;
     }
 
-    public void setDemolition() {
-        currentState = BuildingState.REMOVING;
+    public void toggleDemolition()
+    {
+        if (currentState != BuildingState.REMOVING)
+            currentState = BuildingState.REMOVING;
+        else
+        {
+            currentState = BuildingState.NONE;
+        }
     }
 }
