@@ -123,6 +123,7 @@ public class Tile : MonoBehaviour
         {
             if (isPossibleToPlace(buildable) && playerResources.spendMuniIfPossible(buildable.cost))
             {
+                FMODUnity.RuntimeManager.PlayOneShot(_tileMap.BuildEvent, transform.position);
                 GameObject instaniatedGameObject = Instantiate(buildable.prefab, transform.position, Quaternion.Euler(0, 0, buildingMode.rotation * 90));
                 if (buildable.itemToFilter != null)
                 {

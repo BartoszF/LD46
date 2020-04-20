@@ -16,6 +16,9 @@ public class TileMap : MonoBehaviour
 
     public BuildableEntity _lastItem;
 
+    [FMODUnity.EventRef]
+    public string BuildEvent = "";
+
 
     // Start is called before the first frame update
     void Start()

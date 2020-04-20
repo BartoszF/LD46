@@ -7,16 +7,20 @@ public class TrashCan : MonoBehaviour, ITransportationItem
     private InputChecker _inputChecker;
     private BeltItem _currentItemOnBelt;
 
+    [FMODUnity.EventRef]
+    public string ThrashEvent = "";
+
     void Start()
     {
         _inputChecker = transform.Find("Input").GetComponent<InputChecker>();
-        _inputChecker.OnChange += OnItemChanged;    
+        _inputChecker.OnChange += OnItemChanged;   
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         if(_currentItemOnBelt != null) {
+            FMODUnity.RuntimeManager.PlayOneShot(ThrashEvent, transform.position);
             Destroy(_currentItemOnBelt.gameObject);
         }
     }

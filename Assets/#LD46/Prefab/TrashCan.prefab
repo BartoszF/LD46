@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956669538cd8d794ca4eaa4c65f1fc2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ThrashEvent: event:/Trash
 --- !u!114 &5842820968178689342
 MonoBehaviour:
   m_ObjectHideFlags: 0

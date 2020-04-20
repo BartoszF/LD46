@@ -24,7 +24,7 @@ public class Demolishable : MonoBehaviour
     }
     void OnMouseDown()
     {
-        if (BuildingMode.INSTANCE.currentState == BuildingState.REMOVING)
+        if (BuildingMode.INSTANCE.currentState == BuildingState.REMOVING || (Input.GetMouseButtonDown(1) && BuildingMode.INSTANCE.currentState == BuildingState.BUILDING))
         {
             ITransportationItem mover = gameObject.GetComponent<ITransportationItem>();
             if (mover != null && mover.GetCurrentItem() != null)

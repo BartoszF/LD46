@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{b59041db-e0c4-4177-8f42-be3530b58486}">
+		<property name="assetPath">
+			<value>Trash into Trash Can 02.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1.203219954648526</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{6fa5dad8-75d4-47b4-b21e-2b360dc18414}</destination>
+		</relationship>
+	</object>
+</objects>
