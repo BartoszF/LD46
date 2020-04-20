@@ -15,6 +15,9 @@ public class Merger : MonoBehaviour
     public float speed = 20f;
     public float timeoutSeconds = 5f;
 
+    public Light leftLight;
+    public Light rightLight;
+
     private float _timer = 0f;
     private float _timeoutTimer = 0f;
 
@@ -151,12 +154,17 @@ public class Merger : MonoBehaviour
     //DUNNO, for some reason I cannot bitwise not this enum
     private void ChangeInput()
     {
+        
         if (_currentInput == CurrentInput.LEFT)
         {
+            leftLight.gameObject.SetActive(false);
+            rightLight.gameObject.SetActive(true);
             _currentInput = CurrentInput.RIGHT;
         }
         else
         {
+            leftLight.gameObject.SetActive(true);
+            rightLight.gameObject.SetActive(false);
             _currentInput = CurrentInput.LEFT;
         }
     }
