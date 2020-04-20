@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Splits belt in half!
   cost: 150
   prefab: {fileID: 1991744825265350320, guid: 24d6f8a6a9d55e34d91e9b15c7a50299, type: 3}
-  sprite: {fileID: 21300000, guid: 1644449842be7774fa3b0b3dd6d62cdc, type: 3}
+  sprite: {fileID: 21300000, guid: 0754f3bbb4f916349b1978f586843719, type: 3}
   itemToFilter: {fileID: 0}
   salary: 0
   timeToPayday: 0
