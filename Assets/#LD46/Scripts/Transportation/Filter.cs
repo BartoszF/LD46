@@ -152,7 +152,8 @@ public class Filter : MonoBehaviour, ITransportationItem
 
     public void Reserve(BeltItem body)
     {
-        throw new NotImplementedException();
+        // Iks De
+        // throw new NotImplementedException();
     }
 
     public void OnDestroy(Action<ITransportationItem> onDestroy)
