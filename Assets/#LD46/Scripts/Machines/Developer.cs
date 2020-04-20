@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.Linq;
+using FMOD;
 
 [Serializable]
 public class DeveloperNeeds
@@ -13,7 +14,7 @@ public class DeveloperNeeds
 }
 public class Developer : Machine
 {
- 
+
     public Slider productionSlider;
     public List<DeveloperNeeds> needsToProduce;
     private Dictionary<BeltItemAsset, int> _itemsRemaining;
@@ -27,6 +28,11 @@ public class Developer : Machine
     public GameObject noCoffeeAndFruitAlert;
     public GameObject noPlaceForCodeAlert;
 
+    [FMODUnity.EventRef]
+    public string TypingSound = "";
+
+    private FMOD.Studio.EventInstance developerSoundState;
+
 
     protected override void Start()
     {
@@ -38,18 +44,22 @@ public class Developer : Machine
 
         _inputChecker = _output.GetComponent<InputChecker>();
         _inputChecker.OnChange += OnBeltItemChange;
+
+        developerSoundState = FMODUnity.RuntimeManager.CreateInstance(TypingSound);
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(developerSoundState, GetComponent<Transform>(), GetComponent<Rigidbody>());
     }
 
     void FixedUpdate()
     {
-        if (_salary.isNotPaidFor()) {
+        if (_salary.isNotPaidFor())
+        {
             noFruitAlert.SetActive(false);
             noCoffeeAlert.SetActive(false);
             noCoffeeAndFruitAlert.SetActive(false);
             noPlaceForCodeAlert.SetActive(false);
             return;
         }
-    
+
         if (!_isProducing)
         {
             if (_currentItemOnBelt != null)
@@ -62,45 +72,65 @@ public class Developer : Machine
                 }
             }
 
-            if (_itemsRemaining != null && _itemsRemaining.Any(tuple => tuple.Value > 0)) {
-                if (_itemsRemaining.All(tuple => tuple.Value > 0)) {
+            if (_itemsRemaining != null && _itemsRemaining.Any(tuple => tuple.Value > 0))
+            {
+                if (_itemsRemaining.All(tuple => tuple.Value > 0))
+                {
                     noCoffeeAndFruitAlert.SetActive(true);
-                } else if (_itemsRemaining.Any(tuple => tuple.Key.name == "Coffee" && tuple.Value > 0)) {
+                }
+                else if (_itemsRemaining.Any(tuple => tuple.Key.name == "Coffee" && tuple.Value > 0))
+                {
                     noCoffeeAlert.SetActive(true);
-                } else if (_itemsRemaining.Any(tuple => tuple.Key.name == "Fruit" && tuple.Value > 0)) {
+                }
+                else if (_itemsRemaining.Any(tuple => tuple.Key.name == "Fruit" && tuple.Value > 0))
+                {
                     noFruitAlert.SetActive(true);
                 }
-            } else if (_itemsRemaining != null && _itemsRemaining.All(tuple => tuple.Value == 0)) {
+            }
+            else if (_itemsRemaining != null && _itemsRemaining.All(tuple => tuple.Value == 0))
+            {
                 noCoffeeAndFruitAlert.SetActive(false);
                 noFruitAlert.SetActive(false);
                 noCoffeeAlert.SetActive(false);
                 _isProducing = true;
+                developerSoundState.start();
                 productionSlider.gameObject.SetActive(true);
                 _timer = 0;
             }
         }
         else
         {
-            if (_timer >= secondsToProduce && _outputBelt != null && _outputBelt.HasItem()) {
-                noPlaceForCodeAlert.SetActive(true);
-            } else if (_timer >= secondsToProduce && _outputBelt != null && !_outputBelt.HasItem())
+            if (_timer >= secondsToProduce)
             {
-                noPlaceForCodeAlert.SetActive(false);
-                _timer = 0;
-                GameObject obj = itemProduced.InstantiateGO();
-                obj.transform.position = _output.position;
+                developerSoundState.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
 
-                _isProducing = false;
-                productionSlider.gameObject.SetActive(false);
-                PopulateRemaining();
+
+                if (_outputBelt != null && _outputBelt.HasItem())
+                {
+                    noPlaceForCodeAlert.SetActive(true);
+                }
+                else if (_outputBelt != null && !_outputBelt.HasItem())
+                {
+
+                    noPlaceForCodeAlert.SetActive(false);
+                    _timer = 0;
+                    GameObject obj = itemProduced.InstantiateGO();
+                    obj.transform.position = _output.position;
+
+                    _isProducing = false;
+                    productionSlider.gameObject.SetActive(false);
+                    PopulateRemaining();
+                }
             }
 
             _timer += Time.fixedDeltaTime;
         }
     }
 
-    void LateUpdate() {
-        if (_isProducing) {
+    void LateUpdate()
+    {
+        if (_isProducing)
+        {
             productionSlider.value = Math.Min(1.0f, _timer / secondsToProduce);
         }
     }

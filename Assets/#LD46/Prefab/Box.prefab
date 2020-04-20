@@ -80,6 +80,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemProduced: {fileID: 11400000, guid: de3434d2e169e854fb0e77b0301bc3b4, type: 2}
   secondsToProduce: 2
+  _timer: 0
+  productionSlider: {fileID: 0}
   needsToProduce:
   - itemNeeded: {fileID: 11400000, guid: 59a74c7efa8e4674d88ccebbc5f88d97, type: 2}
     amountNeeded: 5
@@ -89,6 +91,7 @@ MonoBehaviour:
   noCoffeeAlert: {fileID: 6024059769653662168}
   noCoffeeAndFruitAlert: {fileID: 2674017557710781446}
   noPlaceForCodeAlert: {fileID: 4965507229355808728}
+  TypingSound: event:/Developer Type
 --- !u!50 &3865591271755175091
 Rigidbody2D:
   serializedVersion: 4
@@ -751,8 +754,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: -156486658544998735, guid: ea41e4b96daca654eb43c6974dea5c6e,
-        type: 3}
+      objectReference: {fileID: 2100000, guid: 75f7891b1fa896c4da88fa2867a60b8e, type: 2}
     - target: {fileID: -7102463652485660816, guid: 675493b06e961d740a8f04194210b9ee,
         type: 3}
       propertyPath: m_Mesh
