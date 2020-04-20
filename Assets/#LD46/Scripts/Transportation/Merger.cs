@@ -51,6 +51,7 @@ public class Merger : MonoBehaviour
             return;
         }
 
+#if UNITY_EDITOR
         if (_currentInput == CurrentInput.LEFT)
         {
             Debug.DrawLine(_leftInputChecker.transform.position - transform.up / 2, _leftInputChecker.transform.position + transform.up / 2, Color.blue);
@@ -59,6 +60,7 @@ public class Merger : MonoBehaviour
         {
             Debug.DrawLine(_rightInputChecker.transform.position - transform.up / 2, _rightInputChecker.transform.position + transform.up / 2, Color.blue);
         }
+#endif
 
         if (_timer > 0f)
         {
@@ -79,6 +81,7 @@ public class Merger : MonoBehaviour
 
             if (stillHas && _outputBelt != null && !_outputBelt.HasItem())
             {
+                _outputBelt.Reserve(_currentItem);
                 _currentItem.GetTransform().position = _outputBelt.GetTransform().position;
             }
             else if (!stillHas)

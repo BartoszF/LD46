@@ -37,6 +37,7 @@ public class Machine : MonoBehaviour
             _timer = 0;
             GameObject obj = itemProduced.InstantiateGO();
             obj.transform.position = _output.position;
+            _outputBelt.Reserve(obj.GetComponent<BeltItem>());
         }
 
         _timer += Time.fixedDeltaTime;

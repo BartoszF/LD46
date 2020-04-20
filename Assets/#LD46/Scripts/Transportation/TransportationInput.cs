@@ -26,4 +26,9 @@ public class TransportationInput : InputChecker, ITransportationItem
     {
         return item != null;
     }
+
+    public void Reserve(BeltItem body)
+    {
+        item = body;
+    }
 }

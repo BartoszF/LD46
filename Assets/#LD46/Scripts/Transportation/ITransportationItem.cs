@@ -9,4 +9,6 @@ public interface ITransportationItem
     BeltItem GetCurrentItem();
 
     Transform GetTransform();
+
+    void Reserve(BeltItem body);
 }

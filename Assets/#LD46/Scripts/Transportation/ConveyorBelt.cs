@@ -14,6 +14,8 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
     public BeltItem _currentItem;
 
     private bool _arrivedCenter = false;
+    private BeltItem _reservedItem;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +61,7 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
             {
                 if (_nextBelt != null && (!_nextBelt.HasItem() || _nextBelt.GetCurrentItem() == _currentItem))
                 {
+                    _nextBelt.Reserve(_currentItem);
                     direction = (_nextBelt.GetTransform().position - (Vector3)_currentItem.GetTransform().position);
                 }
             }
@@ -77,36 +80,30 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
             {
                 _currentItem = otherItem;
             }
-            _items.Add(otherItem);
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if(other.attachedRigidbody != null)
+        if (other.attachedRigidbody != null)
             other.attachedRigidbody.velocity = Vector2.zero;
-            
+
         BeltItem otherItem = other.GetComponent<BeltItem>();
 
         if (otherItem)
         {
-            if (HasItem() && _currentItem != _items[0])
-            {
-                _currentItem = otherItem;
-                _arrivedCenter = false;
-            }
-            else if (_currentItem == otherItem)
+            if (_currentItem == otherItem)
             {
                 _currentItem = null;
                 _arrivedCenter = false;
             }
-
-            _items.Remove(otherItem);
         }
     }
 
-    void OnDestroy() {
-        if(_currentItem) {
+    void OnDestroy()
+    {
+        if (_currentItem)
+        {
             Destroy(_currentItem.gameObject);
         }
     }
@@ -118,7 +115,7 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
 
     public bool HasItem()
     {
-        return _items.Count > 0;
+        return _currentItem;
     }
 
     public BeltItem GetCurrentItem()
@@ -134,5 +131,10 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
     public Transform GetTransform()
     {
         return transform;
+    }
+
+    public void Reserve(BeltItem item)
+    {
+        _currentItem = item;
     }
 }
