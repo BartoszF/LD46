@@ -16,18 +16,4 @@ MonoBehaviour:
   description: 
   cost: 300
   prefab: {fileID: 622614462740995595, guid: 33f2fd2e65e89244bad3100b858b929f, type: 3}
-  sprite: {fileID: 21300000, guid: 4b6c712bd53502649bb6303a3952aa2f, type: 3}
-  buildingMode: 4
-  orientationDataArr:
-  - orientation: 0
-    spriteToRender: {fileID: 21300000, guid: f77c56dee264d3d41a4280650ab715b3, type: 3}
-    controller: {fileID: 0}
-  - orientation: 3
-    spriteToRender: {fileID: 21300000, guid: 61fe8b898a9f4524ca5601807588cbcc, type: 3}
-    controller: {fileID: 0}
-  - orientation: 1
-    spriteToRender: {fileID: 21300000, guid: f0e8612975070394ca6abf48b0e5b027, type: 3}
-    controller: {fileID: 0}
-  - orientation: 2
-    spriteToRender: {fileID: 21300000, guid: 4b6c712bd53502649bb6303a3952aa2f, type: 3}
-    controller: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 1644449842be7774fa3b0b3dd6d62cdc, type: 3}

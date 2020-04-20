@@ -16,6 +16,4 @@ MonoBehaviour:
   description: Provides free fruits!
   cost: 150
   prefab: {fileID: 6904368909505532661, guid: 0cc7eabbf30e6834f83ebb30d2e8682e, type: 3}
-  sprite: {fileID: 21300000, guid: 4c40ec1480e664b4bb2a047b38c403bb, type: 3}
-  buildingMode: 3
-  orientationDataArr: []
+  sprite: {fileID: 21300000, guid: ec769f750cb5e7c4ca3e9efe78edd5f6, type: 3}

@@ -16,22 +16,4 @@ MonoBehaviour:
   description: Moves stuff...
   cost: 25
   prefab: {fileID: 3962668703244812252, guid: 6f149d10ca405144fbb47373e7bb2016, type: 3}
-  sprite: {fileID: -3765122757252021322, guid: 30607622ed3740f42bf52f3d2b8b2355, type: 3}
-  buildingMode: 1
-  orientationDataArr:
-  - orientation: 0
-    spriteToRender: {fileID: -2398999282464610374, guid: d91b024774bdc9341a5acd3ed2c15a45,
-      type: 3}
-    controller: {fileID: 9100000, guid: ceb95031080bc044e99b7001a79ece4e, type: 2}
-  - orientation: 3
-    spriteToRender: {fileID: -3510219686649992215, guid: 97c86e3a7e110cd46b540038823d1050,
-      type: 3}
-    controller: {fileID: 9100000, guid: 82eb066bd728c824fb17112ddfcccc99, type: 2}
-  - orientation: 1
-    spriteToRender: {fileID: -1467877621237358913, guid: a26d72b2ce011114f8987d11d3466af5,
-      type: 3}
-    controller: {fileID: 9100000, guid: 5da18375c910bd64ba392223058faccd, type: 2}
-  - orientation: 2
-    spriteToRender: {fileID: -3765122757252021322, guid: 30607622ed3740f42bf52f3d2b8b2355,
-      type: 3}
-    controller: {fileID: 9100000, guid: 8618b516821807f45a5d5606061cef17, type: 2}
+  sprite: {fileID: 21300000, guid: ba270290c204e7d4a8dde857ab7f64f6, type: 3}
