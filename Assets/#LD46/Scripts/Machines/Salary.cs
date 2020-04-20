@@ -13,18 +13,6 @@ public class Salary : MonoBehaviour
 
     public GameObject noSalaryGO;
 
-    public Vector3 worldUp =  new Vector3(0,0,-1);
-
-    
-    void Start() {
-        noSalaryGO.SetActive(false);
-    }
-
-    void Update() {
-        transform.LookAt(Camera.main.transform,worldUp);
-    }
-
-
     void FixedUpdate()
     {
         if (_salaryTimer >= buildableEntity.timeToPayday) {
