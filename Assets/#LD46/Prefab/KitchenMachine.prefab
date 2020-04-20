@@ -309,6 +309,8 @@ MonoBehaviour:
   itemProduced: {fileID: 11400000, guid: 40790fa38af0710478ca552b03b520a6, type: 2}
   secondsToProduce: 3
   _timer: 0
+  RunningEvent: 
+  SuccessEvent: 
 --- !u!1001 &309973624953413125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -435,6 +437,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163959197321599086, guid: 6587510e1632449479e8161e5e23c752,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6587510e1632449479e8161e5e23c752, type: 3}
