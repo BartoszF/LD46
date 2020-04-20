@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3047110962329217673}
   - component: {fileID: 3047110962329217675}
   - component: {fileID: 7511149676693485462}
-  - component: {fileID: 7717523842520631761}
+  - component: {fileID: 1620001778616980031}
   m_Layer: 2
   m_Name: BeltChecker
   m_TagString: Untagged
@@ -71,7 +71,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
---- !u!50 &7717523842520631761
+--- !u!50 &1620001778616980031
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
