@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Code
   sprite: {fileID: 21300000, guid: c5f7376e31382c3468a3bab7640b0b4f, type: 3}
+  prefab: {fileID: 4266222468129045392, guid: 0ead83cbbf74e2c449a73191bafa3d20, type: 3}

@@ -15,9 +15,6 @@ public class BeltItemAsset : ScriptableObject
 
         go.name = name;
 
-        SpriteRenderer rend = go.AddComponent<SpriteRenderer>();
-        rend.sprite = sprite;
-        rend.sortingOrder = 150;
         BoxCollider2D bc = go.AddComponent<BoxCollider2D>();
         bc.size = new Vector2(0.4f,0.4f);
 
