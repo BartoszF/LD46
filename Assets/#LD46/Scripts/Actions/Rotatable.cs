@@ -5,27 +5,26 @@ using UnityEngine;
 public class Rotatable : MonoBehaviour
 {
 
-    SelectedAction selectedAction;
+    //SelectedAction selectedAction;
 
     //public OrientationManager orientationManager;
 
-    void Start() {
-        selectedAction = GameObject.Find("GameState").GetComponent<SelectedAction>();        
+    void Start()
+    {
+        //selectedAction = GameObject.Find("GameState").GetComponent<SelectedAction>();        
     }
 
-    void OnMouseOver () {
-        //TODO: Check whether rotation is possible
-        if (Input.GetMouseButtonDown(0)){
-            transform.Rotate(0, 0, 90);
-            // if (orientationManager != null) {
-            //     orientationManager.rotateRight();
-            // }
+    void OnMouseOver()
+    {
+        if (BuildingMode.INSTANCE.currentState == BuildingState.NONE)
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                transform.parent.Rotate(0, 0, 90);
+            }
         }
-        if (Input.GetMouseButtonDown(1)){
-            transform.Rotate(0, 0, -90);
-            // if (orientationManager != null) {
-            //     orientationManager.rotateLeft();
-            // }
-        }
+        // if (Input.GetMouseButtonDown(1)){
+        //     transform.Rotate(0, 0, -90);
+        // }
     }
 }
