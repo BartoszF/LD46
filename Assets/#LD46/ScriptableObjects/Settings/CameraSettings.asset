@@ -15,5 +15,5 @@ MonoBehaviour:
   force: 10
   zoomSpeed: 10
   zoomAmount: 0.5
-  minZoom: -10
-  maxZoom: 5
+  minZoom: 1
+  maxZoom: 15
