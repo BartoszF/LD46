@@ -36,5 +36,7 @@ ScriptedImporter:
   - {fileID: -156486658544998735, guid: bb268c2b85149ab47a0fc3bd67013e16, type: 3}
   materialNames:
   - mat0
-  remappedMaterials: []
+  remappedMaterials:
+  - name: mat0
+    material: {fileID: 2100000, guid: 77c0b6a2f8f81d842816d85e8cf72bc3, type: 2}
   export: 0

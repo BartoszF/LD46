@@ -13,7 +13,7 @@ ScriptedImporter:
   meshMode: 0
   legacyVoxImport: 0
   importMode: 1
-  importScale: {x: 0.1, y: 0.1, z: 0.1}
+  importScale: {x: 1, y: 1, z: 1}
   importOffset: {x: 0, y: 0, z: 0}
   combineFaces: 1
   ignoreCavity: 1
@@ -36,5 +36,7 @@ ScriptedImporter:
   - {fileID: -156486658544998735, guid: 675493b06e961d740a8f04194210b9ee, type: 3}
   materialNames:
   - mat0
-  remappedMaterials: []
+  remappedMaterials:
+  - name: mat0
+    material: {fileID: 2100000, guid: fd7568ea812210f46b7b5dddf2908b01, type: 2}
   export: 0
