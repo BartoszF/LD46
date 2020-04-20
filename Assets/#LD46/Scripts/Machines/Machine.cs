@@ -1,9 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Machine : MonoBehaviour, ITransportationItem
 {
+
+    public Slider productionSlider;
     public BeltItemAsset itemProduced;
 
     public float secondsToProduce = 2f;
@@ -44,6 +46,12 @@ public class Machine : MonoBehaviour, ITransportationItem
         _timer += Time.fixedDeltaTime;
     }
 
+    protected void LateUpdate() {
+        if (productionSlider) {
+            UpdateSlider();
+        }
+    }
+
     private void OnBeltChange(ITransportationItem belt)
     {
         this._outputBelt = belt;
@@ -67,5 +75,9 @@ public class Machine : MonoBehaviour, ITransportationItem
     public void Reserve(BeltItem body)
     {
 
+    }
+
+    public void UpdateSlider() {
+        productionSlider.value = Math.Min(1.0f, _timer / secondsToProduce);
     }
 }

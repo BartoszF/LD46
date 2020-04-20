@@ -14,8 +14,6 @@ public class DeveloperNeeds
 }
 public class Developer : Machine
 {
-
-    public Slider productionSlider;
     public List<DeveloperNeeds> needsToProduce;
     private Dictionary<BeltItemAsset, int> _itemsRemaining;
     private InputChecker _inputChecker;
@@ -128,7 +126,7 @@ public class Developer : Machine
         }
     }
 
-    void LateUpdate()
+    new void UpdateSlider()
     {
         if (_isProducing)
         {
