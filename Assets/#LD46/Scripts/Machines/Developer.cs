@@ -74,16 +74,22 @@ public class Developer : Machine
 
             if (_itemsRemaining != null && _itemsRemaining.Any(tuple => tuple.Value > 0))
             {
-                if (_itemsRemaining.All(tuple => tuple.Value > 1))
+                if (_itemsRemaining.All(tuple => tuple.Value > 0))
                 {
+                    noCoffeeAlert.SetActive(false);
+                    noFruitAlert.SetActive(false);
                     noCoffeeAndFruitAlert.SetActive(true);
                 }
                 else if (_itemsRemaining.Any(tuple => tuple.Key.name == "Coffee" && tuple.Value > 0))
                 {
+                    noFruitAlert.SetActive(false);
+                    noCoffeeAndFruitAlert.SetActive(false);
                     noCoffeeAlert.SetActive(true);
                 }
-                else if (_itemsRemaining.Any(tuple => tuple.Key.name == "Fruit" && tuple.Value > 0))
+                else if (_itemsRemaining.Any(tuple => tuple.Key.name == "Fruits" && tuple.Value > 0))
                 {
+                    noCoffeeAlert.SetActive(false);
+                    noCoffeeAndFruitAlert.SetActive(false);
                     noFruitAlert.SetActive(true);
                 }
             }
