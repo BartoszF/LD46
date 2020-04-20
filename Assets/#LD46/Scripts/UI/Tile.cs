@@ -52,7 +52,7 @@ public class Tile : MonoBehaviour
         if (ghost)
         {
             ghost.transform.rotation = Quaternion.Euler(0, 0, buildingMode.rotation * 90);
-            if (buildingMode.currentEntity == null)
+            if (buildingMode.currentState == BuildingState.NONE)
             {
                 Destroy(ghost);
             }
@@ -71,9 +71,10 @@ public class Tile : MonoBehaviour
         {
             return;
         }
+
         BuildableEntity buildable = buildingMode.currentEntity;
 
-        if (ghost == null && buildable != null)
+        if (ghost == null && buildingMode.currentState == BuildingState.BUILDING && buildable != null)
         {
             _lastItem = buildable;
             SpawnGhost();

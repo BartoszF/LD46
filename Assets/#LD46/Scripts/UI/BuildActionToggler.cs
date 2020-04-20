@@ -8,7 +8,7 @@ public class BuildActionToggler : MonoBehaviour
 
     public void Toggle() {
         if(!toggler.GetToggler()) {
-            BuildingMode.INSTANCE.setBuildingMode(null);
+            BuildingMode.INSTANCE.setBuildingMode(BuildingState.NONE);
         }
     }
 }

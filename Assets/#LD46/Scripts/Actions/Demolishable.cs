@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class Demolishable : MonoBehaviour
 {
-    SelectedAction selectedAction;
 
-    void Start() {
-        selectedAction = GameObject.Find("GameState").GetComponent<SelectedAction>();        
-    }
 
     void OnMouseDown () {
-         if (selectedAction.selectedAction == SelectedActionEnum.Demolition) {
+         if (BuildingMode.INSTANCE.currentState == BuildingState.REMOVING) {
              Destroy(gameObject.transform.parent.gameObject);
          }
     }
