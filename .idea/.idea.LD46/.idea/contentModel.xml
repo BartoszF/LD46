@@ -49,6 +49,7 @@
               <e p="BuildActionToggler.cs" t="Include" />
               <e p="BuildingsPanel.cs" t="Include" />
               <e p="CameraSettings.cs" t="Include" />
+              <e p="DemolishButton.cs" t="Include" />
               <e p="HorizontalToggler.cs" t="Include" />
               <e p="ModeUpdate.cs" t="Include" />
               <e p="MuniUpdater.cs" t="Include" />
