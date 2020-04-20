@@ -17,3 +17,6 @@ MonoBehaviour:
   cost: 127
   prefab: {fileID: 4670069318824985457, guid: 34e169b1db284304facc64b516484649, type: 3}
   sprite: {fileID: 21300000, guid: b820ea85fe1f8044b81e0b8e5d667654, type: 3}
+  itemToFilter: {fileID: 0}
+  salary: 10
+  timeToPayday: 2
