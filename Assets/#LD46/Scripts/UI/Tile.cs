@@ -143,7 +143,11 @@ public class Tile : MonoBehaviour
 
         var point = new Vector2(transform.position.x + prefabCollider.offset.x, transform.position.y + prefabCollider.offset.y);
         var size = new Vector2(prefabCollider.size.x, prefabCollider.size.y) * scale;
-        var orientation = Quaternion.Euler(0, 0, 0);
+
+        var orientation =  Quaternion.Euler(0, 0, 0);
+        if (ghost != null) {
+            orientation =  ghost.transform.rotation;
+        }
 
 #if UNITY_EDITOR
 
@@ -155,10 +159,10 @@ public class Tile : MonoBehaviour
         var bottomRight = point - up + right;
         var bottomLeft = point - up - right;
 
-        Debug.DrawLine(topLeft, topRight, Color.white, 0.5f);
-        Debug.DrawLine(topRight, bottomRight, Color.white, 0.5f);
-        Debug.DrawLine(bottomRight, bottomLeft, Color.white, 0.5f);
-        Debug.DrawLine(bottomLeft, topLeft, Color.white, 0.5f);
+        Debug.DrawLine(topLeft, topRight, Color.red, 0.5f);
+        Debug.DrawLine(topRight, bottomRight, Color.red, 0.5f);
+        Debug.DrawLine(bottomRight, bottomLeft, Color.red, 0.5f);
+        Debug.DrawLine(bottomLeft, topLeft, Color.red, 0.5f);
 
 #endif
 
@@ -166,7 +170,7 @@ public class Tile : MonoBehaviour
         Collider2D[] collider = Physics2D.OverlapBoxAll(
             point,
             size,
-            0.0f
+            ghost.transform.eulerAngles.z
         );
 
         return Array.Find(collider, containsBuilding) == null;
