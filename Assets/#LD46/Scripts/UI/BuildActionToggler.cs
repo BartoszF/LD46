@@ -8,11 +8,11 @@ public class BuildActionToggler : MonoBehaviour
 
     void Update()
     {
-        if (toggler.GetToggler() == false && BuildingMode.INSTANCE.currentState == BuildingState.BUILDING)
+        if (toggler != null && toggler.GetToggler() == false && BuildingMode.INSTANCE.currentState == BuildingState.BUILDING)
         {
             toggler.SetToggle(true);
         }
-        else if (toggler.GetToggler() == true && BuildingMode.INSTANCE.currentState != BuildingState.BUILDING)
+        else if (toggler != null && toggler.GetToggler() == true && BuildingMode.INSTANCE.currentState != BuildingState.BUILDING)
         {
             toggler.SetToggle(false);
         }
