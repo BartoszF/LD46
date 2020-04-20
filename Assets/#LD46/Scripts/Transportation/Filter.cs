@@ -33,7 +33,7 @@ public class Filter : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (_InputChecker == null || _outputRightChecker == null || _outputLeftBelt == null)
+        if (_InputChecker == null || _outputRightChecker == null || _outputLeftChecker == null)
         {
             return;
         }
