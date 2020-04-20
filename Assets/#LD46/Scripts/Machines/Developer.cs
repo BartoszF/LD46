@@ -47,6 +47,8 @@ public class Developer : Machine
 
         developerSoundState = FMODUnity.RuntimeManager.CreateInstance(TypingSound);
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(developerSoundState, GetComponent<Transform>(), GetComponent<Rigidbody>());
+        developerSoundState.start();
+        developerSoundState.setPaused(true);
     }
 
     void FixedUpdate()
@@ -93,7 +95,7 @@ public class Developer : Machine
                 noFruitAlert.SetActive(false);
                 noCoffeeAlert.SetActive(false);
                 _isProducing = true;
-                developerSoundState.start();
+                developerSoundState.setPaused(false);
                 productionSlider.gameObject.SetActive(true);
                 _timer = 0;
             }
@@ -102,8 +104,7 @@ public class Developer : Machine
         {
             if (_timer >= secondsToProduce)
             {
-                developerSoundState.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-
+                developerSoundState.setPaused(true);
 
                 if (_outputBelt != null && _outputBelt.HasItem())
                 {
