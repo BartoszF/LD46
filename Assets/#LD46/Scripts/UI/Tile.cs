@@ -94,11 +94,11 @@ public class Tile : MonoBehaviour
             {
                 if (isPossibleToPlace(buildable))
                 {
-                    mesh.material.color = new Color(60f/255f, 1.0f, 30f/255f, 0.5f);
+                    mesh.material.color = new Color(60f / 255f, 1.0f, 30f / 255f, 0.5f);
                 }
                 else
                 {
-                    mesh.material.color = new Color(1.0f, 60f/255f, 30f/255f, 0.5f);
+                    mesh.material.color = new Color(1.0f, 60f / 255f, 30f / 255f, 0.5f);
                 }
             }
         }
@@ -124,6 +124,10 @@ public class Tile : MonoBehaviour
             if (isPossibleToPlace(buildable) && playerResources.spendMuniIfPossible(buildable.cost))
             {
                 GameObject instaniatedGameObject = Instantiate(buildable.prefab, transform.position, Quaternion.Euler(0, 0, buildingMode.rotation * 90));
+                if (buildable.itemToFilter != null)
+                {
+                    instaniatedGameObject.transform.Find("holder").GetComponent<Filter>().SetItemToFilter(buildable.itemToFilter);
+                }
             }
             else
             {
@@ -144,9 +148,10 @@ public class Tile : MonoBehaviour
         var point = new Vector2(transform.position.x + prefabCollider.offset.x, transform.position.y + prefabCollider.offset.y);
         var size = new Vector2(prefabCollider.size.x, prefabCollider.size.y) * scale;
 
-        var orientation =  Quaternion.Euler(0, 0, 0);
-        if (ghost != null) {
-            orientation =  ghost.transform.rotation;
+        var orientation = Quaternion.Euler(0, 0, 0);
+        if (ghost != null)
+        {
+            orientation = ghost.transform.rotation;
         }
 
 #if UNITY_EDITOR

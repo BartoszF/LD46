@@ -14,5 +14,7 @@ public class BuildableEntity : ScriptableObject
 
     public Sprite sprite;
 
+    public BeltItemAsset itemToFilter;
+
 
 }
