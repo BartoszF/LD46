@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Splitter
   m_EditorClassIdentifier: 
   name: Spliiter
-  description: Splits belt in half!
-  cost: 150
+  description: Splits items from belt in half
+  cost: 200
   prefab: {fileID: 1991744825265350320, guid: 24d6f8a6a9d55e34d91e9b15c7a50299, type: 3}
   sprite: {fileID: 21300000, guid: 0754f3bbb4f916349b1978f586843719, type: 3}
   itemToFilter: {fileID: 0}

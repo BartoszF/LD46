@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: ServerRoom
   m_EditorClassIdentifier: 
   name: Server room
-  description: 
-  cost: 500
+  description: Deliver code to server to earn money
+  cost: 2000
   prefab: {fileID: 5651021029650025202, guid: d908b71cb29ff364b887b9c9d57b5f1b, type: 3}
   sprite: {fileID: 21300000, guid: 2ae0114aaba934e47bd651040418f306, type: 3}
+  itemToFilter: {fileID: 0}
+  salary: 100
+  timeToPayday: 10

@@ -214,7 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   productionSlider: {fileID: 4390322476844126053}
   itemProduced: {fileID: 11400000, guid: 40790fa38af0710478ca552b03b520a6, type: 2}
-  secondsToProduce: 3
+  secondsToProduce: 2
   _timer: 0
   RunningEvent: 
   SuccessEvent: 

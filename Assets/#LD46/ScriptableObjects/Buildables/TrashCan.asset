@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Trash can
   description: 
-  cost: 100
+  cost: 500
   prefab: {fileID: 3031416400045220616, guid: e0ade44618e684a4ab2122177c83e549, type: 3}
   sprite: {fileID: 21300000, guid: 4713c89a6ea06644da44631443a50a76, type: 3}
   itemToFilter: {fileID: 0}
+  salary: 0
+  timeToPayday: 0

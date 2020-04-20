@@ -182,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   productionSlider: {fileID: 7573260992407701854}
   itemProduced: {fileID: 11400000, guid: 59a74c7efa8e4674d88ccebbc5f88d97, type: 2}
-  secondsToProduce: 2
+  secondsToProduce: 3
   _timer: 0
   RunningEvent: event:/Coffee Machine
   SuccessEvent: 

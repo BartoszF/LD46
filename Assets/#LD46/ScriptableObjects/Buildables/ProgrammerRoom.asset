@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d10bddf76dff544bba406c85e9e9aa, type: 3}
   m_Name: ProgrammerRoom
   m_EditorClassIdentifier: 
-  name: Developer box
-  description: 
-  cost: 150
+  name: Programmers box
+  description: Programmers convert coffe and fruits to code
+  cost: 500
   prefab: {fileID: 6299034466782813693, guid: a084f20dcc6d6aa4f9b541edc79b9f28, type: 3}
   sprite: {fileID: 21300000, guid: 8cecad196243d5442bb7e6d23931f787, type: 3}
   itemToFilter: {fileID: 0}
-  salary: 25
-  timeToPayday: 5
+  salary: 50
+  timeToPayday: 10
