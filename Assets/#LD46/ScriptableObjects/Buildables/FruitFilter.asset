@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d10bddf76dff544bba406c85e9e9aa, type: 3}
+  m_Name: FruitFilter
+  m_EditorClassIdentifier: 
+  name: Fruit filter
+  description: Filters fruits
+  cost: 300
+  prefab: {fileID: 6323392776994614691, guid: 219964159db1a894e8fa799d1a6d2f12, type: 3}
+  sprite: {fileID: 21300000, guid: ab39fe0d5ac46f54eb840c5a8f2f4cf6, type: 3}
+  itemToFilter: {fileID: 11400000, guid: 40790fa38af0710478ca552b03b520a6, type: 2}

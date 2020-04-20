@@ -13,17 +13,24 @@ public class Demolishable : MonoBehaviour
     }
     void OnMouseOver()
     {
-        _meshRenderer.material.color = new Color(1f, 0.2f, 0.1f, 1f);
+        if (BuildingMode.INSTANCE.currentState == BuildingState.REMOVING)
+            _meshRenderer.material.color = new Color(1f, 0.2f, 0.1f, 1f);
     }
 
     void OnMouseExit()
     {
-        _meshRenderer.material.color = new Color(1f, 1f, 1f, 1f);
+        if (BuildingMode.INSTANCE.currentState == BuildingState.REMOVING)
+            _meshRenderer.material.color = new Color(1f, 1f, 1f, 1f);
     }
     void OnMouseDown()
     {
         if (BuildingMode.INSTANCE.currentState == BuildingState.REMOVING)
         {
+            ITransportationItem mover = gameObject.GetComponent<ITransportationItem>();
+            if (mover != null && mover.GetCurrentItem() != null)
+            {
+                Destroy(mover.GetCurrentItem().gameObject);
+            }
             Destroy(gameObject.transform.parent.gameObject);
         }
     }
