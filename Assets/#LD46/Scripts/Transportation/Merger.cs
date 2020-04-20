@@ -15,9 +15,6 @@ public class Merger : MonoBehaviour, ITransportationItem
     public float speed = 20f;
     public float timeoutSeconds = 5f;
 
-    public Light leftLight;
-    public Light rightLight;
-
     private float _timer = 0f;
     private float _timeoutTimer = 0f;
 
@@ -160,7 +157,8 @@ public class Merger : MonoBehaviour, ITransportationItem
         _outputBelt.OnDestroy(OnOutputDestroyed);
     }
 
-    void OnOutputDestroyed(ITransportationItem item) {
+    void OnOutputDestroyed(ITransportationItem item)
+    {
         _outputBelt = null;
     }
 
@@ -196,14 +194,10 @@ public class Merger : MonoBehaviour, ITransportationItem
 
         if (_currentInput == CurrentInput.LEFT)
         {
-            leftLight.gameObject.SetActive(false);
-            rightLight.gameObject.SetActive(true);
             _currentInput = CurrentInput.RIGHT;
         }
         else
         {
-            leftLight.gameObject.SetActive(true);
-            rightLight.gameObject.SetActive(false);
             _currentInput = CurrentInput.LEFT;
         }
     }
