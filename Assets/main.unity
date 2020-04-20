@@ -592,6 +592,7 @@ GameObject:
   - component: {fileID: 552012761}
   - component: {fileID: 552012763}
   - component: {fileID: 552012762}
+  - component: {fileID: 552012764}
   m_Layer: 5
   m_Name: RPM
   m_TagString: Untagged
@@ -656,6 +657,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552012760}
   m_CullTransparentMesh: 0
+--- !u!114 &552012764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552012760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1038dfcb1364254aa55338675c12fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rpmText: {fileID: 1144346713}
 --- !u!1 &635843274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,6 +1570,7 @@ GameObject:
   - component: {fileID: 1344207401}
   - component: {fileID: 1344207403}
   - component: {fileID: 1344207402}
+  - component: {fileID: 1344207404}
   m_Layer: 5
   m_Name: TimePlayed
   m_TagString: Untagged
@@ -1619,6 +1634,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344207400}
   m_CullTransparentMesh: 0
+--- !u!114 &1344207404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344207400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c26fdccf145644489dce0a38bace75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeSinceStartInSeconds: 0
+  moneyText: {fileID: 2033917853}
 --- !u!1 &1441272802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2612,7 +2641,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 79, y: 5}
+  m_AnchoredPosition: {x: 77, y: 5}
   m_SizeDelta: {x: 300, y: 200}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &2033917853
@@ -2665,11 +2694,11 @@ MonoBehaviour:
   m_fontSize: 32
   m_fontSizeBase: 32
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 32
   m_fontStyle: 0
-  m_textAlignment: 516
+  m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -2700,7 +2729,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 96.590225, w: 0}
+  m_margin: {x: -18.965271, y: 0, z: 80.1537, w: 0}
   m_textInfo:
     textComponent: {fileID: 2033917853}
     characterCount: 8
