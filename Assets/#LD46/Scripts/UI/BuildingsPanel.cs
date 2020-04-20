@@ -15,6 +15,9 @@ public class BuildingsPanel : MonoBehaviour
             {
                 GameObject panel = Instantiate(buildingPanelPrefab, transform.position, Quaternion.identity);
                 panel.name = item.name;
+
+                panel.GetComponent<BuildingButton>().SetItem(item);
+
                 Image sprite = panel.transform.Find("Sprite").GetComponent<Image>();
                 sprite.overrideSprite = item.sprite;
 
