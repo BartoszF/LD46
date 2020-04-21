@@ -152,4 +152,8 @@ public class Splitter : MonoBehaviour, ITransportationItem
     {
         OnDestroyAction += onDestroy;
     }
+
+    public bool AcceptsItem() {
+        return false;
+    }
 }

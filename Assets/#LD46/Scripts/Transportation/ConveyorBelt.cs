@@ -97,6 +97,7 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("building"))
             return;
+            
         if (other.attachedRigidbody != null)
             other.attachedRigidbody.velocity = Vector2.zero;
 
@@ -178,5 +179,10 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
     public void OnDestroy(Action<ITransportationItem> onDestroy)
     {
         OnDestroyAction += onDestroy;
+    }
+
+    public bool AcceptsItem()
+    {
+        return true;
     }
 }

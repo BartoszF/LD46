@@ -13,14 +13,15 @@ public class BeltChecker : MonoBehaviour
         if (other.GetComponent<ITransportationItem>() != null)
         {
             belt = other.GetComponent<ITransportationItem>();
-            OnChange?.Invoke(belt);
+            if(belt.AcceptsItem())
+                OnChange?.Invoke(belt);
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
         ITransportationItem otherBelt = other.GetComponent<ITransportationItem>();
-        if (otherBelt != null && otherBelt == belt)
+        if (otherBelt != null && otherBelt.AcceptsItem() && otherBelt == belt)
         {
             belt = null;
             OnChange?.Invoke(belt);

@@ -204,7 +204,10 @@ public class Merger : MonoBehaviour, ITransportationItem
 
     public void Reserve(BeltItem body)
     {
-        // throw new NotImplementedException();
+    }
+
+    public bool AcceptsItem() {
+        return false;
     }
 
     public void OnDestroy(Action<ITransportationItem> onDestroy)

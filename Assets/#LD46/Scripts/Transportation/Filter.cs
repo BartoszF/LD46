@@ -156,6 +156,10 @@ public class Filter : MonoBehaviour, ITransportationItem
         // throw new NotImplementedException();
     }
 
+    public bool AcceptsItem() {
+        return false;
+    }
+
     public void OnDestroy(Action<ITransportationItem> onDestroy)
     {
         OnDestroyAction += onDestroy;

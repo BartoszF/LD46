@@ -7,6 +7,8 @@ public interface ITransportationItem
 {
     bool HasItem();
 
+    bool AcceptsItem();
+
     BeltItem GetCurrentItem();
 
     Transform GetTransform();

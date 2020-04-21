@@ -30,6 +30,10 @@ public class TransportationInput : InputChecker, ITransportationItem
         return transform;
     }
 
+    public bool AcceptsItem() {
+        return true;
+    }
+
     public bool HasItem()
     {
         return item != null;

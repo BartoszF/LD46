@@ -45,6 +45,10 @@ public class TrashCan : MonoBehaviour, ITransportationItem
         _currentItemOnBelt = item;
     }
 
+    public bool AcceptsItem() {
+        return false;
+    }
+
     public bool HasItem()
     {
         return false;
