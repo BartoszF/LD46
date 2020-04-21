@@ -13,7 +13,7 @@ public class BeltChecker : MonoBehaviour
         if (other.GetComponent<ITransportationItem>() != null)
         {
             belt = other.GetComponent<ITransportationItem>();
-            OnChange(belt);
+            OnChange?.Invoke(belt);
         }
     }
 
@@ -23,7 +23,7 @@ public class BeltChecker : MonoBehaviour
         if (otherBelt != null && otherBelt == belt)
         {
             belt = null;
-            OnChange(belt);
+            OnChange?.Invoke(belt);
         }
     }
 }

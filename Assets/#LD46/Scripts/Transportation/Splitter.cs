@@ -101,6 +101,7 @@ public class Splitter : MonoBehaviour, ITransportationItem
 
     private void OnRightOutputChanged(ITransportationItem obj)
     {
+        if (obj == null) return;
         _rightOutput = obj;
         _rightOutput.OnDestroy(OnRightOutputDestroyed);
     }
