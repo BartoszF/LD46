@@ -67,10 +67,10 @@
               <e p="Tile.cs" t="Include" />
               <e p="TileMap.cs" t="Include" />
               <e p="TimePlayed.cs" t="Include" />
+              <e p="TitleController.cs" t="Include" />
             </e>
           </e>
         </e>
-        <e p="HelpImage.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="DOTween" t="Include">
             <e p="Modules" t="Include">
