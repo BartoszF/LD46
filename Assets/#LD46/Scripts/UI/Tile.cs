@@ -106,7 +106,11 @@ public class Tile : MonoBehaviour
 
     void SpawnGhost()
     {
-        Destroy(ghost.gameObject);
+        if (ghost)
+        {
+            Destroy(ghost.gameObject);
+        }
+
         ghost = Instantiate(_lastItem.prefab, transform.localPosition, Quaternion.identity);
         ghost.transform.Find("holder").gameObject.active = false;
         ghost.transform.SetParent(transform);
