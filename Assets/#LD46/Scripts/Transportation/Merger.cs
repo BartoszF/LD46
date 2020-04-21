@@ -174,7 +174,7 @@ public class Merger : MonoBehaviour, ITransportationItem
 
     public bool HasItem()
     {
-        return _currentItem != null || _timeoutTimer <= 0f;
+        return _currentItem != null;// || _timeoutTimer <= 0f;
     }
 
     public BeltItem GetCurrentItem()
@@ -204,7 +204,7 @@ public class Merger : MonoBehaviour, ITransportationItem
 
     public void Reserve(BeltItem body)
     {
-        throw new NotImplementedException();
+        // throw new NotImplementedException();
     }
 
     public void OnDestroy(Action<ITransportationItem> onDestroy)

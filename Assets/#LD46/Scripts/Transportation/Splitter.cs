@@ -44,12 +44,12 @@ public class Splitter : MonoBehaviour, ITransportationItem
     {
         if (_currentItem)
         {
-            if (_currentOutput == CurrentOutput.LEFT && _leftOutput != null && _leftOutput.GetTransform())
+            if (_currentOutput == CurrentOutput.LEFT && _leftOutput != null && _leftOutput.GetTransform() && !_leftOutput.HasItem())
             {
                 FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
                 _currentItem.transform.position = _leftOutput.GetTransform().position;
             }
-            else if (_rightOutput != null && _rightOutput.GetTransform())
+            else if (_rightOutput != null && _rightOutput.GetTransform() && !_rightOutput.HasItem())
             {
                 FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
                 _currentItem.transform.position = _rightOutput.GetTransform().position;
@@ -130,12 +130,12 @@ public class Splitter : MonoBehaviour, ITransportationItem
 
     public bool HasItem()
     {
-        throw new NotImplementedException();
+        return _currentItem != null;
     }
 
     public BeltItem GetCurrentItem()
     {
-        throw new NotImplementedException();
+        return _currentItem;
     }
 
     public Transform GetTransform()
@@ -145,7 +145,7 @@ public class Splitter : MonoBehaviour, ITransportationItem
 
     public void Reserve(BeltItem body)
     {
-        throw new NotImplementedException();
+        _currentItem = body;
     }
 
     public void OnDestroy(Action<ITransportationItem> onDestroy)
