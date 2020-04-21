@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ServerRoom : MonoBehaviour
 {
@@ -26,7 +27,11 @@ public class ServerRoom : MonoBehaviour
         if (_currentItemOnBelt != null && _currentItemOnBelt.itemAsset.name == itemToGet.name)
         {
             _currentAmount++;
-            FMODUnity.RuntimeManager.PlayOneShot(PushEvent, transform.position);
+            try
+            {
+                FMODUnity.RuntimeManager.PlayOneShot(PushEvent, transform.position);
+            }
+            catch (Exception ex) { }
 
             Destroy(_currentItemOnBelt.gameObject);
         }

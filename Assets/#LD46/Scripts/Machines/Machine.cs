@@ -41,9 +41,14 @@ public class Machine : MonoBehaviour, ITransportationItem
 
         if (RunningEvent != "")
         {
-            runningSoundState = FMODUnity.RuntimeManager.CreateInstance(RunningEvent);
-            FMODUnity.RuntimeManager.AttachInstanceToGameObject(runningSoundState, GetComponent<Transform>(), GetComponent<Rigidbody>());
+            try
+            {
+                runningSoundState = FMODUnity.RuntimeManager.CreateInstance(RunningEvent);
+                FMODUnity.RuntimeManager.AttachInstanceToGameObject(runningSoundState, GetComponent<Transform>(), GetComponent<Rigidbody>());
+            }
+            catch (Exception ex) { }
         }
+
     }
 
     // Update is called once per frame
@@ -52,8 +57,11 @@ public class Machine : MonoBehaviour, ITransportationItem
         if (_salary.isNotPaidFor()) return;
         else if (_timer <= 0 && RunningEvent != "")
         {
-
-            runningSoundState.start();
+            try
+            {
+                runningSoundState.start();
+            }
+            catch (Exception ex) { }
         }
 
         if (_timer >= secondsToProduce && _outputBelt != null && !_outputBelt.HasItem())
@@ -61,10 +69,22 @@ public class Machine : MonoBehaviour, ITransportationItem
             _timer = 0;
 
             if (RunningEvent != "")
-                runningSoundState.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            {
+                try
+                {
+                    runningSoundState.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                }
+                catch (Exception ex) { }
+            }
 
             if (SuccessEvent != "")
-                FMODUnity.RuntimeManager.PlayOneShot(SuccessEvent, transform.position);
+            {
+                try
+                {
+                    FMODUnity.RuntimeManager.PlayOneShot(SuccessEvent, transform.position);
+                }
+                catch (Exception ex) { }
+            }
 
             GameObject obj = itemProduced.InstantiateGO();
             _outputBelt.Reserve(obj.GetComponent<BeltItem>());
@@ -87,7 +107,7 @@ public class Machine : MonoBehaviour, ITransportationItem
     {
         if (OnDestroyAction != null)
             OnDestroyAction(this);
-            
+
         if (_outputChecker)
         {
             _outputChecker.OnChange -= OnBeltChange;

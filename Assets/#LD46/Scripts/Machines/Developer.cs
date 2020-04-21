@@ -43,10 +43,14 @@ public class Developer : Machine
         _inputChecker = _output.GetComponent<InputChecker>();
         _inputChecker.OnChange += OnBeltItemChange;
 
-        developerSoundState = FMODUnity.RuntimeManager.CreateInstance(TypingSound);
-        FMODUnity.RuntimeManager.AttachInstanceToGameObject(developerSoundState, GetComponent<Transform>(), GetComponent<Rigidbody>());
-        developerSoundState.start();
-        developerSoundState.setPaused(true);
+        try
+        {
+            developerSoundState = FMODUnity.RuntimeManager.CreateInstance(TypingSound);
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(developerSoundState, GetComponent<Transform>(), GetComponent<Rigidbody>());
+            developerSoundState.start();
+            developerSoundState.setPaused(true);
+        }
+        catch (Exception ex) { }
     }
 
     void FixedUpdate()
@@ -99,7 +103,11 @@ public class Developer : Machine
                 noFruitAlert.SetActive(false);
                 noCoffeeAlert.SetActive(false);
                 _isProducing = true;
-                developerSoundState.setPaused(false);
+                try
+                {
+                    developerSoundState.setPaused(false);
+                }
+                catch (Exception ex) { }
                 productionSlider.gameObject.SetActive(true);
                 _timer = 0;
             }
@@ -108,7 +116,11 @@ public class Developer : Machine
         {
             if (_timer >= secondsToProduce)
             {
-                developerSoundState.setPaused(true);
+                try
+                {
+                    developerSoundState.setPaused(true);
+                }
+                catch (Exception ex) { }
 
                 if (_outputBelt != null && _outputBelt.HasItem())
                 {
@@ -135,7 +147,8 @@ public class Developer : Machine
 
     void OnDestroy()
     {
-        if(_inputChecker) {
+        if (_inputChecker)
+        {
             _inputChecker.OnChange -= OnBeltItemChange;
         }
 

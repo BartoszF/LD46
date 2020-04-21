@@ -24,7 +24,11 @@ public class TrashCan : MonoBehaviour, ITransportationItem
     {
         if (_currentItemOnBelt != null)
         {
-            FMODUnity.RuntimeManager.PlayOneShot(ThrashEvent, transform.position);
+            try
+            {
+                FMODUnity.RuntimeManager.PlayOneShot(ThrashEvent, transform.position);
+            }
+            catch (Exception ex) { }
             Destroy(_currentItemOnBelt.gameObject);
         }
     }
@@ -45,7 +49,8 @@ public class TrashCan : MonoBehaviour, ITransportationItem
         _currentItemOnBelt = item;
     }
 
-    public bool AcceptsItem() {
+    public bool AcceptsItem()
+    {
         return false;
     }
 

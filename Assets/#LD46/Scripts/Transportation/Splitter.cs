@@ -46,12 +46,20 @@ public class Splitter : MonoBehaviour, ITransportationItem
         {
             if (_currentOutput == CurrentOutput.LEFT && _leftOutput != null && _leftOutput.GetTransform() && !_leftOutput.HasItem())
             {
-                FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
+                try
+                {
+                    FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
+                }
+                catch (Exception ex) { }
                 _currentItem.transform.position = _leftOutput.GetTransform().position;
             }
             else if (_rightOutput != null && _rightOutput.GetTransform() && !_rightOutput.HasItem())
             {
-                FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
+                try
+                {
+                    FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
+                }
+                catch (Exception ex) { }
                 _currentItem.transform.position = _rightOutput.GetTransform().position;
             }
 
@@ -153,7 +161,8 @@ public class Splitter : MonoBehaviour, ITransportationItem
         OnDestroyAction += onDestroy;
     }
 
-    public bool AcceptsItem() {
+    public bool AcceptsItem()
+    {
         return false;
     }
 }

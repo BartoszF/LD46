@@ -190,7 +190,11 @@ public class Merger : MonoBehaviour, ITransportationItem
     //DUNNO, for some reason I cannot bitwise not this enum
     private void ChangeInput()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
+        try
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
+        }
+        catch (Exception ex) { }
 
         if (_currentInput == CurrentInput.LEFT)
         {
@@ -206,7 +210,8 @@ public class Merger : MonoBehaviour, ITransportationItem
     {
     }
 
-    public bool AcceptsItem() {
+    public bool AcceptsItem()
+    {
         return false;
     }
 

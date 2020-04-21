@@ -50,7 +50,11 @@ public class Filter : MonoBehaviour, ITransportationItem
                 if (_outputRightBelt != null && _outputRightBelt.GetTransform() != null && !_outputRightBelt.HasItem())
                 {
                     _outputRightBelt.Reserve(_currentItem);
-                    FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
+                    try
+                    {
+                        FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
+                    }
+                    catch (Exception ex) { }
                     _currentItem.GetTransform().position = _outputRightBelt.GetTransform().position;
                     _currentItem = null;
                 }
@@ -60,7 +64,11 @@ public class Filter : MonoBehaviour, ITransportationItem
                 if (_outputLeftBelt != null && _outputLeftBelt.GetTransform() != null && !_outputLeftBelt.HasItem())
                 {
                     _outputLeftBelt.Reserve(_currentItem);
-                    FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
+                    try
+                    {
+                        FMODUnity.RuntimeManager.PlayOneShot(ClankEvent, transform.position);
+                    }
+                    catch (Exception ex) { }
                     _currentItem.GetTransform().position = _outputLeftBelt.GetTransform().position;
                     _currentItem = null;
                 }
@@ -156,7 +164,8 @@ public class Filter : MonoBehaviour, ITransportationItem
         // throw new NotImplementedException();
     }
 
-    public bool AcceptsItem() {
+    public bool AcceptsItem()
+    {
         return false;
     }
 
