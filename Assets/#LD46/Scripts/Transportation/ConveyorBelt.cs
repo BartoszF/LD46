@@ -71,7 +71,9 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
                 }
             }
 
-            _currentItem.GetRigidbody().velocity = direction.normalized * speed * Time.deltaTime;
+            if(_currentItem && _currentItem.GetRigidbody()) {
+                _currentItem.GetRigidbody().velocity = direction.normalized * speed * Time.deltaTime;
+            }
         }
     }
 
