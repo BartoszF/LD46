@@ -79,6 +79,9 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if(other.gameObject.layer == LayerMask.NameToLayer("building"))
+            return;
+
         BeltItem otherItem = other.GetComponent<BeltItem>();
         if (otherItem)
         {
@@ -92,6 +95,8 @@ public class ConveyorBelt : MonoBehaviour, ITransportationItem
 
     void OnTriggerExit2D(Collider2D other)
     {
+        if(other.gameObject.layer == LayerMask.NameToLayer("building"))
+            return;
         if (other.attachedRigidbody != null)
             other.attachedRigidbody.velocity = Vector2.zero;
 
