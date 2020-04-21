@@ -163,6 +163,23 @@ public class Tile : MonoBehaviour
             orientation = ghost.transform.rotation;
         }
 
+
+        // Fucking splitter fix
+        if (buildable.name == "Splitter") {
+            if (Math.Abs(orientation.eulerAngles.z) < 1) {
+                point = new Vector2(point.x + prefabCollider.transform.localPosition.x, point.y);
+            }
+            if (Math.Abs(orientation.eulerAngles.z - 90) < 1 || Math.Abs(orientation.eulerAngles.z - -270) < 1) {
+                point = new Vector2(point.x, point.y + prefabCollider.transform.localPosition.x);
+            }
+            if (Math.Abs(orientation.eulerAngles.z - 180) < 1 || Math.Abs(orientation.eulerAngles.z - -180) < 1) {
+                point = new Vector2(point.x - prefabCollider.transform.localPosition.x, point.y);
+            }
+            if (Math.Abs(orientation.eulerAngles.z - -90) < 1 || Math.Abs(orientation.eulerAngles.z - 270) < 1) {
+                point = new Vector2(point.x, point.y - prefabCollider.transform.localPosition.x);
+            }
+        }
+
 #if UNITY_EDITOR
 
         Vector2 right = orientation * Vector2.right * size.x / 2f;
