@@ -29,7 +29,6 @@
       <Path>Build</Path>
       <Path>BuildWebGL</Path>
       <Path>Library</Path>
-      <Path>Temp</Path>
       <Path>fmodProject</Path>
       <Path>obj</Path>
     </explicitExcludes>
