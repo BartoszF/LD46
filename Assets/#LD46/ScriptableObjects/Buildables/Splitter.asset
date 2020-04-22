@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d10bddf76dff544bba406c85e9e9aa, type: 3}
   m_Name: Splitter
   m_EditorClassIdentifier: 
-  name: Spliiter
+  name: Splitter
   description: Splits items from belt in half
   cost: 200
   prefab: {fileID: 1991744825265350320, guid: 24d6f8a6a9d55e34d91e9b15c7a50299, type: 3}
